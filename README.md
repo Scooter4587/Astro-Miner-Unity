@@ -4,7 +4,7 @@ Nový Unity 2D prototyp Astro Miner. Po havárii veľkej lode prežije autonómn
 
 ## Aktuálny rozsah
 
-Vývojové prostredie a dokumentačný základ sú pripravené. Cieľ 0.1 MVP je let, mining, zber, odovzdávanie a jednoduché funkčné systémy Hull, Fuel, Power, Heat a Cargo. Podrobné kroky vlastní roadmapa; herné mechaniky ešte nie sú implementované.
+Vývojové prostredie a dokumentačný základ sú pripravené. Cieľ 0.1 MVP je let, mining, zber, odovzdávanie a jednoduché funkčné systémy Hull, Fuel, Power, Heat a Cargo. Pripravená je prvá scéna s pozadím a náhľadom kamery; skutočný let, mining a systémy lode ešte nie sú implementované.
 
 - Unity 6000.6.2f1, šablóna Universal 2D a URP 2D Renderer.
 - Klávesnica a myš; prvý cieľ je Windows.
@@ -21,3 +21,5 @@ Vývojové prostredie a dokumentačný základ sú pripravené. Cieľ 0.1 MVP je
 Historické [Godot repo](https://github.com/Scooter4587/Astro-Miner) je iba informačná referencia.
 
 Changelog a vydávanie nových krokov: [CHANGELOG.md](CHANGELOG.md) a [Docs/RELEASING.md](Docs/RELEASING.md).
+
+Prvú scénu si otvor podľa [sprievodcu FlightTest](Docs/guides/FIRST_SCENE.md). Šípky posúvajú iba náhľad kamery; Shift zrýchľuje a Home vracia záber na začiatok.

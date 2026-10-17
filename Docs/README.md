@@ -6,6 +6,7 @@ Toto je vstupný bod pre obnovenie kontextu. Dokumenty žijú spolu s projektom 
 
 | Dokument | Úloha |
 | --- | --- |
+| [Prvá scéna — sprievodca](guides/FIRST_SCENE.md) | Otvorenie FlightTest, prvá skúška, Hierarchy, Inspector a ručné kroky v Unity. |
 | [Herný koncept](design/GAME_CONCEPT.md) | Hlavný cyklus a dlhodobá vízia; nie zoznam hotových funkcií. |
 | [Let a vŕtanie](design/FLIGHT_AND_MINING.md) | Dohodnuté jadro, otvorené parametre a akceptačné scenáre. |
 | [Roadmapa](ROADMAP.md) | Návrh rozsahu 0.1 MVP, poradie a najbližšia práca. |
@@ -14,7 +15,7 @@ Toto je vstupný bod pre obnovenie kontextu. Dokumenty žijú spolu s projektom 
 | [Pracovný postup](development/WORKFLOW.md) | Úvodný prototyp v main, prijatie jadra a ďalšie zásahy cez vetvu/PR. |
 | [Testovanie](development/TESTING.md) | Automatické testy, Editor a Adamov herný test. |
 | [Šablóna uzavretia kroku](development/CHECKPOINT_TEMPLATE.md) | Výsledok a dôkazy bez predstierania vykonaných kontrol. |
-| [Poznatky z krokov](development/notes/2026-10-17-project-foundation.md) | Dokumentačný základ a [návrh MVP/workflow](development/notes/2026-10-17-mvp-roadmap.md); ďalšie zápisy patria do toho istého priečinka. |
+| [Poznatky z krokov](development/notes/2026-10-17-project-foundation.md) | Dokumentačný základ a [návrh MVP/workflow](development/notes/2026-10-17-mvp-roadmap.md); [prvá scéna](development/notes/2026-10-17-first-scene.md); ďalšie zápisy patria do toho istého priečinka. |
 | [Setup](SETUP.md) | Nástroje, pripojenie a evidencia prvého overenia. |
 | [Vydávanie](RELEASING.md) | Verzie changelogu a Discord. |
 | [Changelog](../CHANGELOG.md) | Dokončené zmeny a rozpracované Unreleased. |

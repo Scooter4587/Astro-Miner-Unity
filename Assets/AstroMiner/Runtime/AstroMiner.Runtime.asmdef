@@ -1,0 +1,7 @@
+{
+  "name": "AstroMiner.Runtime",
+  "rootNamespace": "AstroMiner",
+  "references": [
+    "Unity.InputSystem"
+  ]
+}

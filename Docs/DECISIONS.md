@@ -16,6 +16,7 @@ Dohody sa ukladajú sem a do dokumentu, ktorý vlastní pravidlo. Identifikátor
 | D-008 | 2026-10-17 | Úvodný prototyp možno robiť priamo v main. Po prijatí letu alebo vrtáka sa zásahy do príslušného jadra robia cez vetvu a PR; vrátane nových systémov meniacich jeho správanie. Nahrádza plošné pravidlo D-006 podľa nového Adamovho zadania. | [Workflow](development/WORKFLOW.md), [stav jadra](design/FLIGHT_AND_MINING.md) |
 | D-009 | 2026-10-17 | Najbližší cieľ je roadmapa k 0.1 MVP: loď, ovládanie, asteroid a mining. Podrobný rozsah dopĺňa D-010; jednotlivé implementačné kroky sa dohodnú samostatne, nejde o zadanie vyrobiť celé MVP naraz. | [Roadmapa](ROADMAP.md) |
 | D-010 | 2026-10-17 | Adam spresnil 0.1 ako celý malý cyklus let, mining, zber a odovzdávanie s jednoduchými funkčnými systémami Hull, Fuel, Power, Heat a Cargo. Zdroje patria do 0.1, hoci nie do prvého letu. | [Roadmapa](ROADMAP.md), [koncept](design/GAME_CONCEPT.md) |
+| D-011 | 2026-10-17 | Prvý realizačný krok pripravuje scénu, jednoduché vesmírne pozadie a čitateľný pohyb s parallaxom. Dočasný náhľad kamery nezavádza finálne ovládanie lode; Blender zatiaľ nie je potrebný. | [Prvá scéna](guides/FIRST_SCENE.md) |
 
 ## Otvorené — rozhodovať včas, nie všetko naraz
 

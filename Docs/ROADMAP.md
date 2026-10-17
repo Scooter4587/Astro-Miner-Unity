@@ -19,7 +19,7 @@ Cieľová podoba: hrateľná Windows verzia s placeholder grafikou. `0.1.0` je v
 | Krok | Výsledok | Kritérium prijatia | Stav |
 | --- | --- | --- | --- |
 | MVP-00 — prostredie a kontext | Unity, VS Code, Git, dokumentácia a Discord pripravené. | Doložený setup, správny projekt, živé spojenie s Editorom a odoslané 0.0.1. | Technický základ overený. |
-| MVP-01 — letová skúšobňa | Jedna loď, orientačné body, kamera, smer z klávesnice, RCS, motor po zarovnaní a Full Stop na C. | F-01 až F-04 overené testami/Play Mode, F-05 Adamov pocit z letu. Potom záznam prijatého commitu letu. | Najbližší krok na detailnú dohodu, nezačaté. |
+| MVP-01 — letová skúšobňa | Jedna loď, orientačné body, kamera, smer z klávesnice, RCS, motor po zarovnaní a Full Stop na C. | F-01 až F-04 overené testami/Play Mode, F-05 Adamov pocit z letu. Potom záznam prijatého commitu letu. | Scéna a parallax náhľad pripravené; skutočný let a jeho prijatie ešte čakajú. |
 | MVP-02 — statický asteroid | Jeden pripravený asteroid, čitateľný povrch a správny kontakt; ešte bez damage modelu. | Loď neprechádza neodstránenou horninou a kontakt nenaruší prijatý let mimo asteroidu. | Nezačaté, po prijatí letu. |
 | MVP-03 — vrták a tunely | LMB, predný profil, odstránenie horniny aj kolízie, neblokujúce vnútro a kontrolovaný postup. | M-01 až M-05: rovný/diagonálny tunel, zákruta, odbočka, komora, otočenie, výlet von; bez mazania mimo vrtáka a fragmentácie. Potom záznam prijatého commitu vrtáka. | Nezačaté, po technickom pláne horniny. |
 | MVP-04 — zber a Cargo | Materiál z ťažby sa zbiera do nákladu s jednoduchou kapacitou a viditeľným stavom. | Bez duplicitného zisku alebo straty; plné cargo má dohodnuté správanie. Počet typov materiálu a model kapacity dohodneme pred kódom. | Nezačaté. |
@@ -40,14 +40,14 @@ Od tohto bodu ide každá zmena chránenej oblasti cez vetvu a PR. Platí to aj 
 
 ## Najbližší samostatný krok
 
-Dohodnúť a pripraviť iba MVP-01:
+Scéna a vizuálna orientácia sú pripravené podľa [sprievodcu](guides/FIRST_SCENE.md). Ďalej dohodnúť a pripraviť skutočný let MVP-01:
 
 - smerové klávesy a význam smeru v priestore;
 - prerušenie Full Stop a C pri takmer nulovej rýchlosti;
 - skúšobné parametre RCS, ťahu, zarovnania a brzdenia;
 - najmenšie členenie kódu a prvé zmysluplné Unity testy.
 
-Rigidbody2D je kandidát na vysvetlený technický návrh. Tento dokumentačný krok nevytvára loď, scénu ani herný kód. Systémy lode patria do cieľa 0.1, ale nerozširujú prvú letovú úlohu.
+Rigidbody2D je kandidát na vysvetlený technický návrh. Vlastná scéna, vizuálny prefab a kód náhľadu už existujú; letový model ešte nie. Systémy lode patria do cieľa 0.1, ale nerozširujú prvú letovú úlohu.
 
 ## Ešte otvorené hranice
 

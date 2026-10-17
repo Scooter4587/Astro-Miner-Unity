@@ -4,7 +4,7 @@ Cieľom je overovať hráčske pravidlá a dôležité hranice. Počet testov s�
 
 ## Aktuálny stav
 
-- Unity Test Framework `1.8.0` je nainštalovaný. Vlastné EditMode a PlayMode testy ešte nie sú vytvorené ani spustené.
+- Unity Test Framework `1.8.0` je nainštalovaný. Vlastná assembly AstroMiner.EditModeTests má 6 prípadov parallaxu, ktoré prešli. Vlastné PlayMode automatické testy zatiaľ neexistujú; náhľad scény bol overený aj v Play Mode.
 - Existuje 6 Node testov pre výber changelog verzie a formát Discord správy. Nie sú dôkazom fungovania letu.
 - CI zatiaľ spúšťa tieto Node testy v oznamovacom workflow po zmene changelogu v main. Neoveruje každý PR a nekompiluje Unity.
 - Setup má doložené overenie kompilácie editorového nástroja, Play Mode šablóny a debuggeru v [SETUP.md](../SETUP.md).
@@ -20,9 +20,11 @@ Cieľom je overovať hráčske pravidlá a dôležité hranice. Počet testov s�
 | Platforma alebo build | Cielený Player build a spustenie dohodnutej cesty na cieľovej platforme. Editor sám nestačí. |
 | Discord nástroj/workflow | Existujúca Node sada a dry run; reálne odoslanie iba pri autorizovanom vydaní alebo cielenej skúške. |
 
-## Ako budú pribúdať Unity testy
+## Ako pribúdajú Unity testy
 
-Pri prvom relevantnom hernom kroku vytvoríme potrebné testovacie assemblies cez Editor/štandardné Unity nástroje, s referenciami na skutočný runtime. Dohodnuté miesto pre vlastné testy je `Assets/AstroMiner/Tests/EditMode/` a `Assets/AstroMiner/Tests/PlayMode/`; priečinky zatiaľ neexistujú.
+Prvý scénový krok vytvoril `Assets/AstroMiner/Runtime/AstroMiner.Runtime.asmdef` a editorovú testovaciu assembly `Assets/AstroMiner/Tests/EditMode/AstroMiner.EditModeTests.asmdef` s referenciou na runtime a TestAssemblies. Jej testy pokrývajú pomer parallaxu, opakovanie pri dlhom pohybe oboma smermi, návrat k začiatku a neplatnú veľkosť dlaždice.
+
+Pre budúce integračné testy zostáva miesto `Assets/AstroMiner/Tests/PlayMode/`; tento priečinok ešte neexistuje. Testovacia infraštruktúra sa rozširuje podľa skutočného kódu.
 
 - EditMode: nezávislé výpočty a rozhodovanie, ak ich oddelenie dáva zmysel.
 - PlayMode: aplikácia síl, vstupy, prepínanie režimov, kolízie a priechod tunelom.
@@ -40,7 +42,7 @@ node --test tests/discord-changelog-workflow.test.mjs
 node scripts/post-discord-changelog.mjs --dry-run
 ```
 
-Dry run nevyužíva webhook a neodosiela správu. Unity testy sa po vytvorení spustia v Unity Test Runneri alebo dostupným podporovaným nástrojom; príkaz doplníme až po skutočnom overení. Vzdialená Unity CI a runner/licencia sú [O-004](../DECISIONS.md), nie už fungujúca služba.
+Dry run nevyužíva webhook a neodosiela správu. Unity testy možno spustiť v Unity Test Runneri cez Window > General > Test Runner, karta EditMode, assembly AstroMiner.EditModeTests. Cez pripojený Pipeline bol overený aj run_tests s mode editor a filtrom tejto assembly; výsledky sa preberajú cez test_status. Vzdialená Unity CI a runner/licencia sú [O-004](../DECISIONS.md), nie už fungujúca služba.
 
 ## Záznam výsledku
 
