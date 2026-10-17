@@ -1,0 +1,40 @@
+name: Discord Changelog
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - CHANGELOG.md
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Existing changelog version to send, for example 0.0.1
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout complete history
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          package-manager-cache: false
+      - name: Verify changelog notification behavior
+        run: node --test tests/discord-changelog-workflow.test.mjs
+      - name: Send new changelog version to Discord
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_CHANGELOG_WEBHOOK_URL }}
+          CHANGELOG_VERSION: ${{ inputs.version }}
+          BEFORE_SHA: ${{ github.event.before }}
+        run: node scripts/post-discord-changelog.mjs

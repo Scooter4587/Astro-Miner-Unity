@@ -19,3 +19,5 @@ Príprava vývojového prostredia. Herné mechaniky ešte nie sú implementovan�
 4. Nastavenie nástrojov je v [Docs/SETUP.md](Docs/SETUP.md).
 
 Historické [Godot repo](https://github.com/Scooter4587/Astro-Miner) je iba informačná referencia.
+
+Changelog a vydávanie nových krokov: [CHANGELOG.md](CHANGELOG.md) a [Docs/RELEASING.md](Docs/RELEASING.md).

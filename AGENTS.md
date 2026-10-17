@@ -25,3 +25,9 @@
 - Nové balíky inštaluj cez Package Manager alebo oficiálne nástroje. Needituj manifest ručne.
 - Assety commituj spolu s ich .meta súbormi. Library, Temp, Logs a UserSettings zostávajú mimo Gitu.
 - Po zmene kódu over kompiláciu. Pocit z letu a kolízie vyžadujú Play Mode; kompilácia sama nestačí.
+
+## Changelog a vydania
+
+- Pri dokončenom a overenom kroku aktualizuj CHANGELOG.md podľa Docs/RELEASING.md.
+- Discord automaticky oznamuje novú verziu po zmene CHANGELOG.md v main. Oprava tej istej verzie sa znovu neposiela.
+- Webhook je výhradne v GitHub repository secret DISCORD_CHANGELOG_WEBHOOK_URL. Nikdy ho nekopíruj do súborov ani výstupov.
