@@ -1,6 +1,6 @@
 # Technický kontext projektu
 
-Kontrola: 17. 10. 2026. Prvá scéna bola vizuálne prezretá Adamom; nasledujúci prvý fyzikálny let je implementovaný a technicky overený. Adam prijal pocit z letu F-05; baseline `8f135f9` je odteraz chránený pracovným pravidlom vetva/PR. Vo vetve feature/static-asteroid je navyše technicky overený statický asteroid; Adamovo prijatie a merge čakajú. Mining a palubné systémy zatiaľ neexistujú.
+Kontrola: 17. 10. 2026. Prvá scéna bola vizuálne prezretá Adamom; nasledujúci prvý fyzikálny let je implementovaný a technicky overený. Adam prijal pocit z letu F-05; baseline `8f135f9` je odteraz chránený pracovným pravidlom vetva/PR. Statický asteroid a kontakt sú technicky overené a Adamom prijaté ako pracovný základ; PR #2 je zlúčený do main (b85f37f). Mining a palubné systémy zatiaľ neexistujú.
 
 ## Overený základ
 
@@ -55,4 +55,4 @@ Historický Unity Search error a Pipeline timeout sú v [SETUP.md](SETUP.md), ni
 
 ## Ďalší krok
 
-Let a F-05 sú prijaté, základ je zaznamenaný. Zásahy do prijatého letu idú cez vetvu/PR podľa D-008. Statický asteroid a kontakt sú pripravené na Adamov test a schválenie PR podľa [sprievodcu](guides/FIRST_ASTEROID.md). Potom nasleduje samostatný návrh vrtáka. Mining, zdroje, saves, ekonomika a HUD ešte nemajú implementáciu.
+Let a F-05 sú prijaté, základ je zaznamenaný. Zásahy do prijatého letu idú cez vetvu/PR podľa D-008. Statický asteroid a kontakt sú prijaté a v main. Nasleduje samostatný návrh prvého vrtáka a priechodného tunela; dnešné parametre kolízie, odrazov a akcelerácie zostávajú pracovné a môžu sa ďalej ladiť. Mining, zdroje, saves, ekonomika a HUD ešte nemajú implementáciu.

@@ -4,6 +4,8 @@ Nový Unity vývoj Astro Miner začína vlastným číslovaním. Najnovšie vyda
 
 ## [Unreleased]
 
+## [0.0.3] - 2026-10-17
+
 ### Added
 - Jeden statický asteroid vo FlightTest, viditeľný doprava hore zo štartu; bunková hornina cez vstavaný Tilemap a spoločný kolízny povrch.
 - Jednoduchá grafika horniny, prefab, Tile asset a skúšobný fyzikálny materiál kontaktu.
@@ -11,7 +13,11 @@ Nový Unity vývoj Astro Miner začína vlastným číslovaním. Najnovšie vyda
 
 ### Documentation
 - Zvolená reprezentácia horniny a sprievodca prvým asteroidom vrátane Hierarchy, Inspector a ručného ekvivalentu tvorby.
-- Pripravené na Adamovu skúšku vo vetve/PR; let zostáva na prijatom základe, vrták sa ešte neimplementoval.
+- Adam odskúšal let okolo asteroidu a narážanie; PR #2 zlúčený po prijatí pracovného základu. Let zostal nezmenený.
+
+### Known limitations
+- Kolízny pocit, odrazy a akcelerácia zostávajú otvorené ďalšiemu ladeniu.
+- Vrták, ťažba a damage ešte nie sú implementované; Player build sa v tomto kroku nerobil.
 
 ## [0.0.2] - 2026-10-17
 

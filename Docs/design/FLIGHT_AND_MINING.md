@@ -37,7 +37,7 @@ MVP-02 zvolil vstavaný Tilemap s bunkami 0.25 a spoločnou Composite kolíziou 
 
 ## Asteroid
 
-Tunely nerozdeľujú asteroid na samostatné telesá. Prvý asteroid je statický a jeho kontakt je pripravený vo vetve feature/static-asteroid podľa [kontraktu asteroidu](ASTEROIDS.md). Drift a potom rotácia prídu až po prijatom statickom prototype.
+Tunely nerozdeľujú asteroid na samostatné telesá. Prvý asteroid je statický a jeho kontakt je prijatý ako pracovný základ a zlúčený cez PR #2 podľa [kontraktu asteroidu](ASTEROIDS.md). Drift a potom rotácia prídu až po prijatom statickom prototype.
 
 Budúci pohyb vyžaduje materiál v lokálnych súradniciach asteroidu a overenie relatívneho pohybu lode v tuneli. Samotné priradenie lode pod transform asteroidu správnu fyziku nepotvrdzuje.
 

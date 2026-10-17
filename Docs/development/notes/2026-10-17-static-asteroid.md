@@ -1,6 +1,6 @@
 # Statický asteroid a kontakt — 17. 10. 2026
 
-Stav: implementované a technicky overené vo feature/static-asteroid; Adamov S-05, prijatie a merge čakajú. Základ vetvy je e7a8427 (prijatie letu/0.0.2); chránený let zostáva 8f135f9. Nový krok je v Unreleased, bez novej Discord správy.
+Stav: implementované a technicky overené vo feature/static-asteroid, následne Adamom prijaté ako pracovný základ a zlúčené cez PR #2 do main. Testovaný head 12e966a; squash commit b85f37fc4928e2848cc0ba8c4e39d547138df19c. Základ vetvy je e7a8427 (prijatie letu/0.0.2); chránený let zostáva 8f135f9. Prijatý krok je uzavretý v changelogu 0.0.3; oznámenie odosiela existujúci release workflow.
 
 ## Rozsah a výsledok
 
@@ -28,7 +28,7 @@ Kód letu, vstupov, kamery a prefab lode sa nemenili. Nový vlastný kód je edi
 | Zachovanie základu | Git diff voči e7a8427 nemá zmeny v Runtime, ShipPlaceholder.prefab, Packages, ProjectSettings ani SampleScene. |
 | Koncový stav Editora | FlightTest uložená a nie dirty, Play zastavený, loď (0,0,0), kamera (0,0,-10). Dočasné podmienky scénovej skúšky sa neuložili. |
 | Player build | Nevykonaný; cieľ kroku je Editor kontakt. Build startup stále zostáva SampleScene. |
-| Adamov test S-05 | Čaká podľa [sprievodcu](../../guides/FIRST_ASTEROID.md). |
+| Adamov test S-05 | Prijaté 17. 10. 2026: Adam potvrdil let okolo aj narážanie. Kolízia, odrazy a akcelerácia sa môžu neskôr ladiť; nejde o finálny balance. |
 
 Asteroid integračné testy načítavajú skutočné projektové prefab assety cez AssetDatabase a sú pod UNITY_EDITOR. Nie sú testami samostatného Playera. Statický tvar je serializovaný v prefabe; bežné otvorenie ani spustenie scény nepotrebuje generátor znovu spustiť.
 
@@ -42,4 +42,4 @@ Dokumentačné relatívne odkazy prešli kontrolou; vlastné assety majú prísl
 
 ## Odovzdanie
 
-[Sprievodca prvým asteroidom](../../guides/FIRST_ASTEROID.md) opisuje WASD/C, prílet, kontakt a odlet, nové objekty a komponenty, súbory, ukážku collidera cez Scene/Gizmos a ručný ekvivalent vytvorenia cez Editor API. Ďalšie zásahy do prijatého letu zostávajú cez vetvu/PR podľa D-008; tento krok sa bez Adamovho prijatia nemerguje.
+[Sprievodca prvým asteroidom](../../guides/FIRST_ASTEROID.md) opisuje WASD/C, prílet, kontakt a odlet, nové objekty a komponenty, súbory, ukážku collidera cez Scene/Gizmos a ručný ekvivalent vytvorenia cez Editor API. Ďalšie zásahy do prijatého letu zostávajú cez vetvu/PR podľa D-008; tento krok bol po Adamovom prijatí zlúčený. Výsledné Assets, Packages a ProjectSettings sú Git diffom potvrdené totožné s testovaným headom 12e966a. Nasledujúca zmena je iba záznam prijatia/verzia, bez zmeny hry.

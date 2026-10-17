@@ -1,10 +1,10 @@
 # Prvý asteroid — prílet a kontakt
 
-Stav: pripravené na Adamovu skúšku vo vetve feature/static-asteroid. Prijatý let, WASD/C aj kamera zostali rovnaké. Nový krok ešte nie je zlúčený do main ani vydaný na Discord.
+Stav: Adam kontakt odskúšal a prijal ako pracovný základ 17. 10. 2026. PR #2 je zlúčený do main, krok je v changelogu 0.0.3. Prijatý let, WASD/C aj kamera zostali rovnaké.
 
 ## Spustenie a krátka skúška
 
-1. Použi rovnaký lokálny projekt `C:\Development\Astro Miner Unity`. Už je v ňom pripravená pracovná vetva; netreba sťahovať ďalší klon.
+1. Použi rovnaký lokálny projekt `C:\Development\Astro Miner Unity`. Prijatý krok je už v main; netreba sťahovať ďalší klon.
 2. V **Project > Assets > AstroMiner > Scenes** dvojklikni na **FlightTest**.
 3. Stlač **Play** a klikni do **Game**.
 4. Doprava hore uvidíš časť asteroidu. Krátkym **W + D** letíš diagonálne k nemu. Skúšaj krátke zábery a sleduj povrch; zotrvačnosť zostáva zachovaná.
@@ -15,7 +15,7 @@ Stav: pripravené na Adamovu skúšku vo vetve feature/static-asteroid. Prijatý
 
 LMB zatiaľ nevŕta. Tmavé škvrny na asteroide sú textúra pevného povrchu, nie diery. Podrobnejší let vysvetľuje [FIRST_FLIGHT.md](FIRST_FLIGHT.md).
 
-Očakávame čitateľný prílet, pevnú horninu a možnosť z kontaktu odletieť. Pozoruj najmä prípadné zachytávanie o okraj, neprimerané odhodenie alebo rozdiel medzi viditeľným povrchom a dotykom. Po tvojej skúške uzavrieme výsledok v PR.
+Očakávame čitateľný prílet, pevnú horninu a možnosť z kontaktu odletieť. Pozoruj najmä prípadné zachytávanie o okraj, neprimerané odhodenie alebo rozdiel medzi viditeľným povrchom a dotykom. Prvá skúška aj PR sú uzavreté; ďalšie ladenie fyzikálneho pocitu môžeme robiť priebežne.
 
 ## Čo pribudlo v Hierarchy a Inspectore
 
@@ -70,4 +70,4 @@ Menu **Astro Miner > Setup > Add Static Test Asteroid** je po vytvorení vypnut�
 
 ## Čo bude potom
 
-Po tvojom prijatí príde samostatný návrh vrtáka a aktualizácie horniny. Zmiznutie dlaždice musí neskôr odstrániť aj jej kolíziu; priechodný tunel, komoru a otočenie lode overíme až vtedy. Aktuálne sú pripravené statické dáta a kontakt.
+Po prijatom kontakte nasleduje samostatný návrh vrtáka a aktualizácie horniny. Zmiznutie dlaždice musí neskôr odstrániť aj jej kolíziu; priechodný tunel, komoru a otočenie lode overíme až vtedy. Aktuálne sú pripravené statické dáta a kontakt.

@@ -1,6 +1,6 @@
 # Asteroidy — prvý statický povrch
 
-Stav: MVP-02 implementované vo vetve feature/static-asteroid; Adamova skúška a merge čakajú. Ide o jeden statický asteroid vo FlightTest. Prijatý let zostáva podľa [jadra](FLIGHT_AND_MINING.md) na baseline 8f135f9; jeho kód ani prefab sa nemenili.
+Stav: MVP-02 technicky overené, Adamom prijaté ako pracovný základ a zlúčené cez PR #2 do main (b85f37f). Ide o jeden statický asteroid vo FlightTest. Prijatý let zostáva podľa [jadra](FLIGHT_AND_MINING.md) na baseline 8f135f9; jeho kód ani prefab sa nemenili.
 
 ## Výsledok kroku
 
@@ -35,6 +35,8 @@ Generátor je jednorazový authoring nástroj cez Editor API. Vyžaduje čistú 
 | S-03 | Testovaný rýchly diagonálny náraz pri 80 jednotkách/s nezanesie stred lode do pevnej horniny. |
 | S-04 | Full Stop s dostatočným predstihom dokončí brzdenie pred kontaktom a mimo kontaktu platia prijaté scenáre letu F-01 až F-04. |
 | S-05 | Adam odskúša viditeľnosť, prílet, dotyk, manévrovanie a odlet v reálnej scéne. |
+
+Adam 17. 10. 2026 potvrdil, že let okolo asteroidu a narážanie fungujú; S-05 je prijaté. Kolíziu, odrazy a akceleráciu môže byť potrebné neskôr doladiť.
 
 Výsledky a hranice dôkazov vlastní [záznam kroku](../development/notes/2026-10-17-static-asteroid.md). S-03 nie je záruka pre ľubovoľnú rýchlosť, timestep a budúci tvar tunela. Testy používajú reálny prefab asteroidu a reálnu loď s Continuous collision detection.
 
