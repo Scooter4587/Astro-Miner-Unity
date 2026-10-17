@@ -1,4 +1,5 @@
 using AstroMiner.Flight;
+using AstroMiner.Mining;
 using UnityEngine;
 
 namespace AstroMiner.Presentation
@@ -11,10 +12,12 @@ namespace AstroMiner.Presentation
         [SerializeField] private GameObject _clockwiseExhaust;
         [SerializeField] private GameObject _counterClockwiseExhaust;
         private ShipFlightController _flight;
+        private ShipDrillController _drill;
 
         private void Awake()
         {
             _flight = GetComponent<ShipFlightController>();
+            _drill = GetComponent<ShipDrillController>();
             if (_mainExhaust != null && _clockwiseExhaust != null && _counterClockwiseExhaust != null) return;
             Debug.LogError("Ship thrust visuals require all three exhaust references.", this);
             enabled = false;
@@ -23,8 +26,9 @@ namespace AstroMiner.Presentation
         private void LateUpdate()
         {
             _mainExhaust.SetActive(_flight.MainEngineActive);
-            _clockwiseExhaust.SetActive(_flight.TurnEffort < -0.02f);
-            _counterClockwiseExhaust.SetActive(_flight.TurnEffort > 0.02f);
+            float turn = _drill != null && _drill.IsEngaged ? _drill.TurnEffort : _flight.TurnEffort;
+            _clockwiseExhaust.SetActive(turn < -0.02f);
+            _counterClockwiseExhaust.SetActive(turn > 0.02f);
         }
 
         private void OnDisable()

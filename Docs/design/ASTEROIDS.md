@@ -47,3 +47,17 @@ Tilemap dáva spoločný zdroj obrazu a pevnej horniny. Pri budúcej zmene bunie
 Tento krok neimplementuje ani neoveruje odstránenie horniny, otvorený tunel, odkryté vnútro alebo profil vrtáka. Pred MVP-03 zostávajú podľa O-003 pravidlá stabilizácie, cúvania, pracovného profilu, aktualizácie kolízií po vŕtaní a bezpečného prechodu loďou. Fragmentácia sa nezavádza. Drift a rotácia prídu až po prijatom statickom miningu.
 
 Unity podklad: [Tilemap Collider 2D](https://docs.unity3d.com/6000.0/Documentation/Manual/tilemaps/work-with-tilemaps/tilemap-collider-2d-reference.html), [CompositeCollider2D](https://docs.unity3d.com/6000.0/Documentation/ScriptReference/CompositeCollider2D.html), [GenerateGeometry](https://docs.unity3d.com/6000.0/Documentation/ScriptReference/CompositeCollider2D.GenerateGeometry.html).
+
+## Dohodnutý smer miningu — D-016
+
+Nasledujúce pravidlá sú dohoda pre ďalší vývoj, nie už implementovaný runtime systém:
+
+- Asteroid bude vlastniť samostatné dáta materiálu, zostávajúcej horniny a poškodenia. Riadenie lode ich nevlastní.
+- Materiálové údaje možno oddeliť od jemnosti geometrie. Obraz, detekcia záberu a kolízia musia opisovať zhodný priechod.
+- Zásah jediného rohu neoznačí celú veľkú bunku za vyťaženú. Práca a suroviny sa viažu na odstránené množstvo; zmena rozlíšenia nemá meniť ekonomiku.
+- Laser používa zrezaný kužeľ pred nosom, zasahuje odkrytý povrch a rozdeľuje dostupný výkon. Pevná tvrdá vrstva blokuje materiál za sebou.
+- Generátor aj ručné authoring dáta majú vstupovať do rovnakého stavu asteroidu. Seed a nastavenie umožnia opakovateľné skúšky; uloženie vykopaných tunelov neskôr vyžaduje aj skutočné zmeny dát.
+- Hladší obrys cez okrajové Tile varianty alebo vlastnú geometriu zostáva kandidátom na malé overenie. Zvolený finálny backend, rozlíšenie ani výkon tým nie sú dokázané.
+- Aktualizácie sa majú dávkovať; potrebu delenia do menších oblastí rozhodne meranie pri kopaní. Pre prvé skúšky stačí jeden asteroid.
+
+MVP-03A používa variantu DrillTestAsteroid s pripravenou chodbou a neblokujúcim vnútrom podľa [drill kontraktu](DRILL_MODE.md). Pôvodný StaticAsteroid prefab aj jeho prijaté integračné scenáre zostávajú zachované. Nevznikol ešte runtime generátor, dátová vrstva miningu ani save/load.

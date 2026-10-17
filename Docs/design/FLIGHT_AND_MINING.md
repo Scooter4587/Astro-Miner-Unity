@@ -24,16 +24,20 @@ Skúšobné parametre v Ship Flight Controller: Main Acceleration 4 jednotky/s²
 
 [Sprievodca prvým letom](../guides/FIRST_FLIGHT.md) opisuje ovládanie, Inspector aj manuálny ekvivalent pridania komponentov.
 
+## Drill riadenie — MVP-03A
+
+D-015 pridáva samostatný R režim, RCS posuv/otáčanie a C bez retrográdneho otočenia. Implementované správanie, profil a akceptačné scenáre vlastní [DRILL_MODE.md](DRILL_MODE.md). Samotné odstraňovanie horniny ani získavanie surovín ešte neexistujú. Adamov test nového režimu čaká.
+
 ## Vŕtanie a priestor
 
 - Držanie `LMB` aktivuje predný vrták; smer sleduje nos lode riadenej klávesnicou.
-- Režim vŕtania má umožniť pomalý kontrolovaný postup a manévrovanie so stabilizáciou. Konkrétne pravidlá zapojenia a uvoľnenia ešte treba overiť.
+- R prepína samostatný drill režim so stabilizáciou; LMB ovláda predný laser bez vypnutia režimu po pustení. V MVP-03A je LMB iba náhľad podľa DRILL_MODE.md.
 - Pracovný profil musí vytvoriť priechod pre skutočný kolízny tvar lode aj diagonálne a v zákrute. Viditeľná diera s neviditeľnou kolíziou je chyba.
-- Chodba širšia než trup nemusí stačiť na otočenie dlhej lode. Hráč musí vedieť vyvŕtať väčšiu komoru a otočiť sa v nej.
+- Pracovný profil a rozumný trup majú vytvoriť chodbu umožňujúcu zastavenie a otočenie na mieste aj pri slepom konci. Komora môže chodbu rozšíriť, nemá byť povinná pri každom návrate. Samotná maximálna šírka kužeľa priechodnosť nedokazuje.
 - Hornina aj jej kolízia sa odstraňujú konzistentne; tmavšia vnútorná vrstva po vyvŕtaní neblokuje loď.
 - Stabilizácia sama nemaže skalu za loďou alebo mimo dosahu vrtáka. Mazanie kruhu okolo celého trupu, teleport a vypnutie kolízií nie sú schváleným riešením manévrovania.
 
-MVP-02 zvolil vstavaný Tilemap s bunkami 0.25 a spoločnou Composite kolíziou podľa [ASTEROIDS.md](ASTEROIDS.md), D-014. Statický kontakt je implementovaný; vrták ani mazanie horniny ešte nie. Pred MVP-03 treba dohodnúť aktualizáciu kolízií po vŕtaní, profil vrtáka, cúvanie, rozširovanie komory a prechod po pustení LMB.
+MVP-02 zvolil vstavaný Tilemap s bunkami 0.25 a spoločnou Composite kolíziou podľa [ASTEROIDS.md](ASTEROIDS.md), D-014. Statický kontakt je implementovaný; vrták ani mazanie horniny ešte nie. MVP-03A overuje cúvanie, stabilizáciu a prechody v pripravenej chodbe. Skutočný mining musí ešte vyriešiť aktualizáciu kolízií, povrchové zásahy kužeľa a výsledný priechod.
 
 ## Asteroid
 
@@ -54,12 +58,12 @@ Tieto scenáre sú očakávania pre budúce kroky, nie tvrdenie o úspešných t
 | F-05 | Pocit z orientácie, RCS, kamery a brzdenia odskúša Adam v reálnom Play Mode. | Prijatie letu. |
 | M-01 | Rovný aj diagonálny tunel zodpovedajú kolízii a loď nimi prejde. | Statický asteroid a vrták. |
 | M-02 | Loď vyrazí zákrutu a odbočku bez opakovaného odrážania alebo zasekávania na rohoch. | Statický asteroid a vrták. |
-| M-03 | Vŕtaním a manévrovaním vytvorí komoru, otočí sa a vyletí von. | Statický asteroid a vrták. |
+| M-03 | Vlastný vykopaný priechod umožní zastavenie, otočenie na mieste a výlet von; hráč ho môže rozšíriť na komoru. | Statický asteroid a vrták. |
 | M-04 | Vrták odstraňuje len horninu vo svojom pracovnom profile; mimo neho sa skala nestráca. | Statický asteroid a vrták. |
 | M-05 | Tunel cez asteroid nespustí fragmentáciu a odkryté vnútro neblokuje priechod. | Statický asteroid a vrták. |
 | A-01 | Drift a rotácia nenarušia priechod, lokálne vŕtanie ani uvoľnenie stabilizácie. | Až pohybujúci sa asteroid. |
 
-Najbližší krok rieši iba scenáre F. Celkové predvedenie prvého herného prototypu neskôr spojí prílet, brzdenie, zakrivený tunel, komoru, otočenie a výlet von.
+Aktuálny krok MVP-03A rieši scenáre D z DRILL_MODE.md na pripravenej dutine; scenáre M ešte nepotvrdzuje. Celkové predvedenie prvého herného prototypu neskôr spojí prílet, brzdenie, zakrivený tunel, komoru, otočenie a výlet von.
 
 ## Prijatie a ochrana základu
 

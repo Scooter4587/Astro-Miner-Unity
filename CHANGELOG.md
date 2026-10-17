@@ -4,6 +4,20 @@ Nový Unity vývoj Astro Miner začína vlastným číslovaním. Najnovšie vyda
 
 ## [Unreleased]
 
+### Added
+- MVP-03A: prepínanie R medzi letom a presným RCS drill režimom, stabilizácia pri vstupe, W/S posuv, A/D otáčanie a C brzdenie bez presmerovania nosa.
+- Nastavovací DrillModePrototype profil, režimový prstenec, viditeľné translačné RCS, LMB náhľad kužeľa a prepínateľné Gizmos zóny.
+- Prefab varianty lode a jedného asteroidu s pripravenou chodbou v tvare L a neblokujúcim vnútrom.
+- Sedem PlayMode scenárov pre režimy, riadenie, kontakt, otočenie, vstup a fokus.
+
+### Documentation
+- Kontrakt drill režimu, jeho Unity sprievodca a dohody o dátach horniny, geometrii a množstve ťažby.
+
+### Known limitations
+- Adamov Play test a prijatie čakajú; táto zmena ešte nie je vydanie.
+- LMB je iba náhľad. Chodba vznikla pri authoringu; runtime mining, suroviny, hladké steny a saves ešte nie sú implementované.
+- Prvá skúška používa existujúce bunky 0.25; výkon budúceho menenia horniny sa tým neoveril.
+
 ## [0.0.3] - 2026-10-17
 
 ### Added

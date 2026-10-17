@@ -1,5 +1,7 @@
 # Prvý asteroid — prílet a kontakt
 
+Aktuálna FlightTest už používa pripravenú drill chodbu a štart pri (18,4). Pre dnešnú skúšku začni [drill sprievodcom](DRILL_MODE_TEST.md); text nižšie zachováva predchádzajúci krok.
+
 Stav: Adam kontakt odskúšal a prijal ako pracovný základ 17. 10. 2026. PR #2 je zlúčený do main, krok je v changelogu 0.0.3. Prijatý let, WASD/C aj kamera zostali rovnaké.
 
 ## Spustenie a krátka skúška
