@@ -19,17 +19,29 @@ namespace AstroMiner.Flight
         public bool IsStopping { get; private set; }
         public bool MainEngineActive { get; private set; }
         public float TurnEffort { get; private set; }
+        public bool ControlSuspended { get; private set; }
+
+        public void SetControlSuspended(bool suspended)
+        {
+            ControlSuspended = suspended;
+            _moveDirection = Vector2.zero;
+            IsStopping = false;
+            MainEngineActive = false;
+            TurnEffort = 0f;
+        }
 
         private void Awake() => _body = GetComponent<Rigidbody2D>();
 
         public void SetMoveDirection(Vector2 worldDirection)
         {
+            if (ControlSuspended) return;
             _moveDirection = Vector2.ClampMagnitude(worldDirection, 1f);
             if (_moveDirection.sqrMagnitude > 0f) IsStopping = false;
         }
 
         public void RequestFullStop()
         {
+            if (ControlSuspended) return;
             _moveDirection = Vector2.zero;
             IsStopping = true;
         }
@@ -47,6 +59,7 @@ namespace AstroMiner.Flight
         {
             float dt = Time.fixedDeltaTime;
             MainEngineActive = false;
+            if (ControlSuspended) return;
             Vector2 velocity = _body.linearVelocity;
             float speed = velocity.magnitude;
             Vector2 target = IsStopping ? -velocity.normalized : _moveDirection.normalized;

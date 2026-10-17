@@ -1,6 +1,6 @@
 # Technický kontext projektu
 
-Kontrola: 17. 10. 2026. Prvá scéna bola vizuálne prezretá Adamom; nasledujúci prvý fyzikálny let je implementovaný a technicky overený. Adam prijal pocit z letu F-05; baseline `8f135f9` je odteraz chránený pracovným pravidlom vetva/PR. Statický asteroid a kontakt sú technicky overené a Adamom prijaté ako pracovný základ; PR #2 je zlúčený do main (b85f37f). Mining a palubné systémy zatiaľ neexistujú.
+Kontrola: 17. 10. 2026. Prvá scéna bola vizuálne prezretá Adamom; nasledujúci prvý fyzikálny let je implementovaný a technicky overený. Adam prijal pocit z letu F-05; baseline `8f135f9` je odteraz chránený pracovným pravidlom vetva/PR. Statický asteroid a kontakt sú technicky overené a Adamom prijaté ako pracovný základ; PR #2 je zlúčený do main (b85f37f). MVP-03A teraz pridáva drill riadenie a pripravenú chodbu; Adamovo prijatie čaká. Samotná ťažba a palubné systémy zatiaľ neexistujú.
 
 ## Overený základ
 
@@ -10,13 +10,13 @@ Kontrola: 17. 10. 2026. Prvá scéna bola vizuálne prezretá Adamom; nasledujú
 | Editor | Unity 6000.6.2f1, rev. 770e33f6875c; živé spojenie overené. |
 | Rendering | Universal 2D, URP 17.6.0, Sprite-Unlit materiál prototypu. |
 | Vstup | Input System 1.20.0; samostatný ShipKeyboardInput číta Keyboard.current. WASD/C podľa D-012, bez action map a rebindingu. |
-| Testovanie | Test Framework 1.8.0; 6 EditMode prípadov parallaxu a 10 PlayMode scenárov prešlo (6 let, 4 asteroid/kontakt). |
+| Testovanie | Test Framework 1.8.0; 6 EditMode prípadov parallaxu; nová celá PlayMode sada prešla 17/17 (7 drill, 6 let, 4 asteroid/kontakt). |
 | Nástroje | Pipeline 0.8.0-exp.1, Unity IDE 2.0.26 a VS Code; prvotné overenie debuggeru v [SETUP.md](SETUP.md). |
 | Cieľ | Windows, klávesnica/myš; Player build aktuálnej scény ešte nebol overený. |
 
 Verzie určujú [manifest.json](../Packages/manifest.json) a [packages-lock.json](../Packages/packages-lock.json). Letový krok nezmenil balíky, pipeline ani ProjectSettings. Predchádzajúci scénový krok pridal predvolený SceneTemplateSettings.json.
 
-## Scéna a štart
+## Scéna a štart — základ pred MVP-03A
 
 [FlightTest.unity](../Assets/AstroMiner/Scenes/FlightTest.unity) obsahuje:
 
@@ -56,3 +56,13 @@ Historický Unity Search error a Pipeline timeout sú v [SETUP.md](SETUP.md), ni
 ## Ďalší krok
 
 Let a F-05 sú prijaté, základ je zaznamenaný. Zásahy do prijatého letu idú cez vetvu/PR podľa D-008. Statický asteroid a kontakt sú prijaté a v main. Nasleduje samostatný návrh prvého vrtáka a priechodného tunela; dnešné parametre kolízie, odrazov a akcelerácie zostávajú pracovné a môžu sa ďalej ladiť. Mining, zdroje, saves, ekonomika a HUD ešte nemajú implementáciu.
+
+## MVP-03A — drill riadenie, stav vetvy
+
+FlightTest používa ShipDrillPrototype a DrillTestAsteroid, varianty pôvodných prijatých prefabov. Loď a kamera začínajú pri (18,4); asteroid ostáva pri (18,16). Vnútri je vopred vytvorená L chodba so stredovou osou (18,5) → (18,19) → (24,19) a neblokujúcou tmavou podlahou. Nejde o výsledok runtime ťažby.
+
+Pribudli DrillModeProfile, ShipDrillController, ShipDrillFeedback a ShipDrillDebug. ShipKeyboardInput smeruje vstup podľa R režimu; prijatý letový výpočet má iba explicitnú bránu riadenia. V runtime sa nemení transform/velocity lode a nevypínajú sa kolízie. Dnešná geometria je stále Tilemap 0.25; AsteroidState, generovanie sveta, hladký obrys, suroviny a saves ešte nie sú implementované.
+
+Nový profil je v Assets/AstroMiner/Settings/DrillModePrototype.asset; autoritatívne správanie a prehľad jeho čísel vlastní [DRILL_MODE.md](design/DRILL_MODE.md). Sedem nových PlayMode scenárov používa skutočné prefab varianty; vstupné prípady izoluje oficiálny InputTestFixture z už nainštalovaného Input Systemu. Nepribudol nový balík ani zmena ProjectSettings.
+
+Pôvodné podrobnosti scény a prijatia vyššie zachovávajú históriu prvých krokov; aktuálnu Play skúšku vlastní [DRILL_MODE_TEST.md](guides/DRILL_MODE_TEST.md). Technické výsledky a Adamovo prijatie vlastní [záznam](development/notes/2026-10-17-drill-mode.md).

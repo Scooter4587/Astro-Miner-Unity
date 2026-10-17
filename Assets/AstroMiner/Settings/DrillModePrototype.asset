@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36fa8cd0cb3b2c04c88ee1f1917fc574, type: 3}
+  m_Name: DrillModePrototype
+  m_EditorClassIdentifier: AstroMiner.Runtime::AstroMiner.Mining.DrillModeProfile
+  _moveSpeed: 1.5
+  _acceleration: 3
+  _responseTime: 0.25
+  _turnSpeed: 60
+  _turnAcceleration: 240
+  _readySpeed: 0.1
+  _readyTurnSpeed: 2
+  _contactSkin: 0.08
+  _turnClearance: 0.35
+  _beamRange: 2.5
+  _beamNearWidth: 3.2
+  _beamHalfAngle: 15

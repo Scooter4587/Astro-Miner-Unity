@@ -4,7 +4,7 @@ Cieľom je overovať hráčske pravidlá a dôležité hranice. Počet testov s�
 
 ## Aktuálny stav
 
-- Unity Test Framework `1.8.0` je nainštalovaný. AstroMiner.EditModeTests má 6 prípadov parallaxu a AstroMiner.PlayModeTests 10 scenárov (6 let a 4 asteroid/kontakt); všetky prešli. FlightTest bola navyše overená živými vstupmi v Play Mode.
+- Unity Test Framework `1.8.0` je nainštalovaný. AstroMiner.EditModeTests má 6 prípadov parallaxu a AstroMiner.PlayModeTests 17 scenárov (7 drill, 6 let a 4 asteroid/kontakt); všetky prešli. FlightTest bola navyše overená živými vstupmi v Play Mode.
 - Existuje 6 Node testov pre výber changelog verzie a formát Discord správy. Nie sú dôkazom fungovania letu.
 - CI zatiaľ spúšťa tieto Node testy v oznamovacom workflow po zmene changelogu v main. Neoveruje každý PR a nekompiluje Unity.
 - Setup má doložené overenie kompilácie editorového nástroja, Play Mode šablóny a debuggeru v [SETUP.md](../SETUP.md).
@@ -63,3 +63,11 @@ Rozsah podľa D-010 zahŕňa Cargo, Power, Heat, Fuel a Hull aj odovzdávanie. K
 - Integrácia: systémové výpadky nesmú obísť pravidlá letu alebo miningu; napríklad vypnutie motora okamžite nezruší zotrvačnosť.
 
 Toto je plán pokrytia, nie tvrdenie o existujúcich testoch. Finálny Windows build sa overí celou výpravou aj relevantnými hraničnými stavmi, nielen štartom aplikácie.
+
+## MVP-03A — drill režim
+
+ShipDrillTests pridáva 7 Editor PlayMode scenárov so skutočnými ShipDrillPrototype a DrillTestAsteroid prefabmi. Zahŕňajú obmedzené brzdenie pri vstupe, posuv/cúvanie/C, 360° otočenie v pripravenej chodbe, skutočný kontakt slepého konca a odchod, návrat do letu, R/C s podržaným vstupom a fokus/LMB bez zmeny obsadených buniek.
+
+Vstupné skúšky používajú InputTestFixture z existujúceho Input System balíka; fixture po každom prípade obnoví pôvodné zariadenia a nastavenia. Neobchádzajú ShipKeyboardInput a menia skutočné Keyboard/Mouse stavy v izolovanom testovacom prostredí. PlayMode assembly preto referencuje aj Unity.InputSystem a Unity.InputSystem.TestFramework.
+
+Pripravená chodba nepotvrdzuje miningové M scenáre ani výkon prepočtu dynamickej horniny. Finálne výsledky vlastní [záznam kroku](notes/2026-10-17-drill-mode.md).

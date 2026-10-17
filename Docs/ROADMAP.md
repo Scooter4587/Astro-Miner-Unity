@@ -6,7 +6,7 @@ Dohodnuté jadro vlastní [FLIGHT_AND_MINING.md](design/FLIGHT_AND_MINING.md), s
 
 ## Čo má 0.1 dokázať
 
-Hráč ovláda jednu loď so zotrvačnosťou, priletí k statickému asteroidu, postupne zabrzdí, predným vrtákom vyrazí priechodný tunel, nazbiera materiál, vytvorí komoru, otočí sa a vráti sa odovzdať náklad pri jednoduchej základni. Výpravu možno zopakovať.
+Hráč ovláda jednu loď so zotrvačnosťou, priletí k statickému asteroidu, postupne zabrzdí, predným vrtákom vyrazí priechodný tunel, nazbiera materiál, dokáže sa otočiť vo vlastnom priechode a vráti sa odovzdať náklad pri jednoduchej základni. Výpravu možno zopakovať.
 
 Loď pritom používa skutočné zdroje: pohon míňa palivo, reaktor obnovuje energiu, činnosť produkuje teplo, cargo má dohodnutú kapacitu a poškodenie znižuje hull. Vyčerpanie alebo prehriatie má dohodnutý funkčný následok; HUD nie je iba dekorácia.
 
@@ -21,7 +21,7 @@ Cieľová podoba: hrateľná Windows verzia s placeholder grafikou. `0.1.0` je v
 | MVP-00 — prostredie a kontext | Unity, VS Code, Git, dokumentácia a Discord pripravené. | Doložený setup, správny projekt, živé spojenie s Editorom a odoslané 0.0.1. | Technický základ overený. |
 | MVP-01 — letová skúšobňa | Jedna loď, orientačné body, kamera, smer z klávesnice, RCS, motor po zarovnaní a Full Stop na C. | F-01 až F-04 overené testami/Play Mode, F-05 Adamov pocit z letu. Potom záznam prijatého commitu letu. | Dokončené: technicky overené a Adamom prijaté 17. 10. 2026; základ letu `8f135f9`, ďalšie zásahy cez vetvu/PR. |
 | MVP-02 — statický asteroid | Jeden pripravený asteroid, čitateľný povrch a správny kontakt; ešte bez damage modelu. | Loď neprechádza neodstránenou horninou a kontakt nenaruší prijatý let mimo asteroidu. | Dokončené: S-01 až S-04 technicky overené, Adam prijal S-05; PR #2 zlúčený, pracovný základ b85f37f. |
-| MVP-03 — vrták a tunely | LMB, predný profil, odstránenie horniny aj kolízie, neblokujúce vnútro a kontrolovaný postup. | M-01 až M-05: rovný/diagonálny tunel, zákruta, odbočka, komora, otočenie, výlet von; bez mazania mimo vrtáka a fragmentácie. Potom záznam prijatého commitu vrtáka. | Nezačaté, po technickom pláne horniny. |
+| MVP-03 — vrták a tunely | LMB, predný profil, odstránenie horniny aj kolízie, neblokujúce vnútro a kontrolovaný postup. | M-01 až M-05: rovný/diagonálny tunel, zákruta, odbočka, komora, otočenie, výlet von; bez mazania mimo vrtáka a fragmentácie. Potom záznam prijatého commitu vrtáka. | Rozpracované: MVP-03A pridáva R/RCS riadenie a pripravenú chodbu podľa DRILL_MODE.md; skutočné odstraňovanie horniny ešte nie. |
 | MVP-04 — zber a Cargo | Materiál z ťažby sa zbiera do nákladu s jednoduchou kapacitou a viditeľným stavom. | Bez duplicitného zisku alebo straty; plné cargo má dohodnuté správanie. Počet typov materiálu a model kapacity dohodneme pred kódom. | Nezačaté. |
 | MVP-05 — odovzdanie | Jednoduchá základňa prijme náklad a ukáže výsledok výpravy. | Korektný presun materiálu, bez opakovaného započítania; výpravu možno zopakovať. | Nezačaté. |
 | MVP-06 — Power | Reaktor priebežne obnovuje energiu, činnosti ju spotrebúvajú a nedostatok má reálny následok. | Kapacita, obnova, odber, dočasný výpadok a opätovné zapojenie podľa dohodnutých pravidiel. | Nezačaté. |
@@ -42,7 +42,7 @@ Od tohto bodu ide každá zmena chránenej oblasti cez vetvu a PR. Platí to aj 
 
 Adam prvý let odskúšal a prijal. Základ `8f135f9` je zapísaný v kontrakte; ďalšie zásahy do prijatého letu idú cez vetvu a PR. Sprievodca zostáva v [FIRST_FLIGHT.md](guides/FIRST_FLIGHT.md).
 
-MVP-02 — statický asteroid a kontakt — Adam odskúšal a prijal ako pracovný základ; PR #2 je zlúčený do main. Kolízny pocit, odrazy a akceleráciu možno neskôr doladiť cez dohodnutý workflow. Techniku a scenáre S vlastní [ASTEROIDS.md](design/ASTEROIDS.md). Následný MVP-03 bude samostatný návrh a implementácia vrtáka; nepridal sa do tohto kroku.
+MVP-02 — statický asteroid a kontakt — Adam odskúšal a prijal ako pracovný základ; PR #2 je zlúčený do main. Kolízny pocit, odrazy a akceleráciu možno neskôr doladiť cez dohodnutý workflow. Techniku a scenáre S vlastní [ASTEROIDS.md](design/ASTEROIDS.md). MVP-03A teraz pripravuje [drill režim](design/DRILL_MODE.md) a [Play skúšku](guides/DRILL_MODE_TEST.md) na jednej vopred vyrezanej chodbe. Nasledujúce MVP-03B pripojí skutočné odstraňovanie horniny po overení dát a geometrie. Celý MVP-03 zostáva nedokončený.
 
 ## Ešte otvorené hranice
 

@@ -1,6 +1,12 @@
 {
     "name": "AstroMiner.PlayModeTests",
     "rootNamespace": "AstroMiner.PlayModeTests",
-    "references": ["AstroMiner.Runtime"],
-    "optionalUnityReferences": ["TestAssemblies"]
+    "references": [
+        "AstroMiner.Runtime",
+        "Unity.InputSystem",
+        "Unity.InputSystem.TestFramework"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ]
 }

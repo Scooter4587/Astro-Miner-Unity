@@ -4,7 +4,7 @@ Nový Unity 2D prototyp Astro Miner. Po havárii veľkej lode prežije autonómn
 
 ## Aktuálny rozsah
 
-Vývojové prostredie a dokumentačný základ sú pripravené. Cieľ 0.1 MVP je let, mining, zber, odovzdávanie a jednoduché funkčné systémy Hull, Fuel, Power, Heat a Cargo. Pripravená je prvá scéna s parallaxom, fyzikálnym letom, RCS, Full Stop a kamerou sledujúcou loď. Prvý let Adam odskúšal a prijal. Jeden statický asteroid a kontakt Adam odskúšal a prijal ako pracovný základ; PR #2 je zlúčený do main. Mining a systémy lode ešte nie sú implementované.
+Vývojové prostredie a dokumentačný základ sú pripravené. Cieľ 0.1 MVP je let, mining, zber, odovzdávanie a jednoduché funkčné systémy Hull, Fuel, Power, Heat a Cargo. Pripravená je prvá scéna s parallaxom, fyzikálnym letom, RCS, Full Stop a kamerou sledujúcou loď. Prvý let Adam odskúšal a prijal. Jeden statický asteroid a kontakt Adam odskúšal a prijal ako pracovný základ; PR #2 je zlúčený do main. MVP-03A pridáva drill režim R a pripravenú chodbu na Play test; Adamovo prijatie zatiaľ čaká. Samotná ťažba a systémy lode ešte nie sú implementované.
 
 - Unity 6000.6.2f1, šablóna Universal 2D a URP 2D Renderer.
 - Klávesnica a myš; prvý cieľ je Windows.
@@ -25,3 +25,5 @@ Changelog a vydávanie nových krokov: [CHANGELOG.md](CHANGELOG.md) a [Docs/RELE
 Statický povrch a jeho skúšku opisuje [sprievodca prvým asteroidom](Docs/guides/FIRST_ASTEROID.md).
 
 Prvú scénu a let si otvor podľa [sprievodcu letom](Docs/guides/FIRST_FLIGHT.md). WASD určuje svetový smer a C spustí postupné brzdenie. [Starší sprievodca scénou](Docs/guides/FIRST_SCENE.md) vysvetľuje pozadie a zostavu.
+
+Aktuálny Play test: [drill ovládanie v pripravenej chodbe](Docs/guides/DRILL_MODE_TEST.md). FlightTest štartuje pod vstupom pri (18,4); R prepne režim, W/S posúvajú podľa nosa a A/D otáčajú. LMB je zatiaľ iba náhľad lúča.

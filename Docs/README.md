@@ -6,6 +6,9 @@ Toto je vstupný bod pre obnovenie kontextu. Dokumenty žijú spolu s projektom 
 
 | Dokument | Úloha |
 | --- | --- |
+| [Drill režim — kontrakt](design/DRILL_MODE.md) | R/WASD/C, prechody, profil, debug a hranice MVP-03A. |
+| [Drill režim — dôkazy](development/notes/2026-10-17-drill-mode.md) | Rozsah, skutočné skúšky a čakajúce prijatie. |
+| [Drill režim — skúška](guides/DRILL_MODE_TEST.md) | Presná Play skúška pripravenej chodby a orientácia v Unity. |
 | [Prvý asteroid — sprievodca](guides/FIRST_ASTEROID.md) | Prílet, kontakt, odlet a vysvetlenie Grid, Tilemap a kolízie. |
 | [Prvý let — sprievodca](guides/FIRST_FLIGHT.md) | WASD/C, kamera, skúška, fyzikálne komponenty a ručný ekvivalent v Unity. |
 | [Prvá scéna — sprievodca](guides/FIRST_SCENE.md) | Otvorenie FlightTest, prvá skúška, Hierarchy, Inspector a ručné kroky v Unity. |

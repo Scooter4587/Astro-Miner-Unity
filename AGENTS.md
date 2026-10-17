@@ -13,6 +13,7 @@ Pred návrhom architektúry alebo zmenou projektu prečítaj:
 Podľa úlohy potom čítaj:
 
 - Herný návrh alebo nový systém: [GAME_CONCEPT.md](Docs/design/GAME_CONCEPT.md).
+- Drill režim R, RCS a jeho skúška: [DRILL_MODE.md](Docs/design/DRILL_MODE.md) a [sprievodca](Docs/guides/DRILL_MODE_TEST.md).
 - Let, ovládanie, vrták, tunely alebo asteroid: [FLIGHT_AND_MINING.md](Docs/design/FLIGHT_AND_MINING.md); pri hornine aj [ASTEROIDS.md](Docs/design/ASTEROIDS.md).
 - Implementácia, oprava alebo overovanie: [TESTING.md](Docs/development/TESTING.md).
 - Editor, nástroje a balíky: [SETUP.md](Docs/SETUP.md).
@@ -41,7 +42,7 @@ Nerob plošný audit pri každej malej úlohe. Čítaj spoločný základ a konk
 ## Herné hranice
 
 - Základom je let so zotrvačnosťou a razenie tunelov predným vrtákom. Presné pravidlá a otvorené otázky vlastní `Docs/design/FLIGHT_AND_MINING.md`.
-- Žiadne automatické mouse aim, rušenie zotrvačnosti po pustení vstupu, okamžitý Full Stop ani mazanie horniny okolo celého trupu.
+- Vo voľnom lete žiadne automatické mouse aim, rušenie zotrvačnosti po pustení vstupu ani okamžitý Full Stop. Drill režim má explicitné obmedzené RCS brzdenie podľa DRILL_MODE.md; stále bez teleportu a mazania horniny okolo celého trupu.
 - Asteroidy sa tunelmi nerozpadajú. Pohyb asteroidu príde až po prijatom statickom prototype.
 - Zdroje lode, ekonomika, príbeh, gravitácia a assisted flight nepatria do prvého letového kroku.
 - Historické Godot repo je iba referencia; jeho architektúra ani čísla nie sú záväzné pre Unity.
