@@ -4,6 +4,10 @@ Nový Unity vývoj Astro Miner začína vlastným číslovaním. Najnovšie vyda
 
 ## [Unreleased]
 
+### Documentation
+- Trvalý dokumentačný základ: koncept hry, dohodnuté jadro, technický stav, rozhodnutia a poznatky z vývoja.
+- Povinné čítanie a aktualizácia dokumentácie v AGENTS.md; workflow vetva, PR, Adamov test a schválenie; postup budúcich Unity testov.
+
 ## [0.0.1] - 2026-10-17
 
 ### Added

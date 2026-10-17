@@ -1,5 +1,13 @@
 # Postup vývoja
 
+Poradie krokov vlastní tento dokument; dohodnuté správanie je v [kontrakte jadra](design/FLIGHT_AND_MINING.md), skutočný technický stav v [projektovom kontexte](PROJECT_CONTEXT.md). Rozcestník je [Docs/README.md](README.md).
+
+## Aktuálny krok — dokumentačný základ
+
+Pripravené na kontrolu cez PR; Adamovo prijatie a merge čakajú. Koncept, pravidlá čítania, register rozhodnutí a testovací postup zachovávajú kontext pre ďalšie malé kroky. Poznatky sú v [zázname kroku](development/notes/2026-10-17-project-foundation.md).
+
+Najbližšia diskusia: dohodnúť malý rozsah letovej skúšobne a otázky O-001/O-002 v [rozhodnutiach](DECISIONS.md). Herná implementácia ešte nezačala.
+
 ## 0. Vývojové prostredie
 
 Stav: hotové 17. 10. 2026.
