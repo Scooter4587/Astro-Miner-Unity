@@ -4,6 +4,8 @@ Nový Unity vývoj Astro Miner začína vlastným číslovaním. Najnovšie vyda
 
 ## [Unreleased]
 
+## [0.0.2] - 2026-10-17
+
 ### Added
 - Prvá scéna FlightTest: jednoduché vesmírne pozadie, opakované parallax vrstvy, pevná orientačná mriežka a majáky.
 - Prefab lode s Rigidbody2D, WASD vo svetových smeroch, otáčaním RCS, ťahom po zarovnaní, zachovaným driftom a postupným Full Stop na C.
@@ -11,13 +13,18 @@ Nový Unity vývoj Astro Miner začína vlastným číslovaním. Najnovšie vyda
 - 6 Unity EditMode prípadov parallaxu a 6 PlayMode scenárov fyzikálneho letu.
 
 ### Documentation
-- Sprievodca prvým letom a zapísané potvrdené pravidlá WASD/C; prijatie pocitu z letu ešte čaká.
+- Sprievodca prvým letom a zapísané potvrdené pravidlá WASD/C; prvý pocit z letu Adam odskúšal a prijal.
 - Sprievodca prvou scénou: súbory, Hierarchy, Inspector, ovládanie a ručný ekvivalent tvorby v Unity.
 - Praktický flow jedného lokálneho projektu medzi Unity, VS Code, Blenderom a GitHubom; odovzdanie skúšky a priebežné vysvetľovanie Unity.
 - Trvalý dokumentačný základ: koncept hry, dohodnuté jadro, technický stav, rozhodnutia a poznatky z vývoja.
 - Povinné čítanie a aktualizácia dokumentácie v AGENTS.md a postup budúcich Unity testov.
 - Roadmapa k 0.1 MVP: celý cyklus letu, miningu, zberu a odovzdávania so základnými systémami Hull, Fuel, Power, Heat a Cargo.
 - Spresnený workflow: úvodný prototyp v main, zásahy do prijatého letu alebo vrtáka cez vetvu a PR.
+
+- Prijatý základ letu je `8f135f9`; ďalšie zásahy doň idú cez vetvu, PR a Adamovu skúšku.
+
+### Known limitations
+- Zatiaľ bez asteroidu, miningu a palubných systémov; Windows Player build nebol vykonaný.
 
 ## [0.0.1] - 2026-10-17
 

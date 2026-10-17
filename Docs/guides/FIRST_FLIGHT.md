@@ -1,6 +1,6 @@
 # Prvý let — FlightTest
 
-Stav 17. 10. 2026: let je implementovaný, skompilovaný a technicky overený. Adamov pocit z letu ešte čaká na skúšku. Ťažba ani palubné zdroje nie sú aktívne. Stále pracujeme s jednoduchou grafikou.
+Stav 17. 10. 2026: let je implementovaný, skompilovaný a technicky overený. Adam prvý pocit z letu prijal; baseline je `8f135f9`. Ťažba ani palubné zdroje nie sú aktívne. Stále pracujeme s jednoduchou grafikou.
 
 ## Spustenie a ovládanie
 
@@ -25,7 +25,7 @@ Ak pri C už držíš smer, brzdenie sa tým samo nezruší. Na jeho prerušenie
 | Počas brzdenia stlač nový smer. | Prevezmeš ovládanie a loď začne sledovať nový smer. |
 | Stlač C v pokoji. | Loď sa neroztočí. |
 
-Najprv skúšaj krátke zábery približne 1–2 sekundy a potom C. Nie je zavedený herný rýchlostný limit. Pevná orientačná mriežka siaha od -80 do +80, čo nie je stena sveta; pri dlhom zrýchľovaní ju môžeš opustiť. Pozadie sa opakuje aj za ňou. Nový Play obnoví pokus. Presný pocit z tempa a brzdenia ešte budeme ladiť spolu.
+Najprv skúšaj krátke zábery približne 1–2 sekundy a potom C. Nie je zavedený herný rýchlostný limit. Pevná orientačná mriežka siaha od -80 do +80, čo nie je stena sveta; pri dlhom zrýchľovaní ju môžeš opustiť. Pozadie sa opakuje aj za ňou. Nový Play obnoví pokus. Aktuálny pocit letu je prijatý; ďalšie ladenie môžeme robiť vedome cez vetvu a PR.
 
 ## Čo pribudlo v Unity
 
@@ -92,6 +92,6 @@ Nevytváral sa nový projekt, nová scéna ani nový balík. Historický generá
 
 Prešlo 6 PlayMode scenárov letu a 6 EditMode prípadov parallaxu. Klávesy, drift, Full Stop a kamera boli overené aj priamo vo FlightTest cez Input System. [Záznam kroku](../development/notes/2026-10-17-first-flight.md) obsahuje dôkazy a limity.
 
-Player build nebol vykonaný; v build nastaveniach stále zostáva SampleScene. F-05 — pocit z ovládania — prijíma Adam. Po jeho prijatí zaznamenáme commit letu a ďalšie zásahy do jadra pôjdu cez vetvu a PR.
+Player build nebol vykonaný; v build nastaveniach stále zostáva SampleScene. F-05 — pocit z ovládania — Adam prijal 17. 10. 2026. Prijatý commit letu je `8f135f934b25ec3092d805337f1929a2571c2ebe`; ďalšie zásahy do jadra idú cez vetvu a PR.
 
 Technické vysvetlenie: [Unity AddForce](https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Rigidbody2D.AddForce.html) pridáva silu v čase; [linear damping](https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Rigidbody2D-linearDamping.html) pri hodnote 0 neznižuje rýchlosť automaticky.

@@ -4,7 +4,7 @@ Nový Unity 2D prototyp Astro Miner. Po havárii veľkej lode prežije autonómn
 
 ## Aktuálny rozsah
 
-Vývojové prostredie a dokumentačný základ sú pripravené. Cieľ 0.1 MVP je let, mining, zber, odovzdávanie a jednoduché funkčné systémy Hull, Fuel, Power, Heat a Cargo. Pripravená je prvá scéna s parallaxom, fyzikálnym letom, RCS, Full Stop a kamerou sledujúcou loď. Let čaká na Adamovo herné prijatie; mining a systémy lode ešte nie sú implementované.
+Vývojové prostredie a dokumentačný základ sú pripravené. Cieľ 0.1 MVP je let, mining, zber, odovzdávanie a jednoduché funkčné systémy Hull, Fuel, Power, Heat a Cargo. Pripravená je prvá scéna s parallaxom, fyzikálnym letom, RCS, Full Stop a kamerou sledujúcou loď. Prvý let Adam odskúšal a prijal; mining a systémy lode ešte nie sú implementované.
 
 - Unity 6000.6.2f1, šablóna Universal 2D a URP 2D Renderer.
 - Klávesnica a myš; prvý cieľ je Windows.

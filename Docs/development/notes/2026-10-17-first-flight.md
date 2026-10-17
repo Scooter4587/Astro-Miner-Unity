@@ -1,6 +1,6 @@
 # Prvý fyzikálny let — 17. 10. 2026
 
-Stav: implementované a technicky overené; Adamov test pocitu z letu F-05 čaká. Základ pred zmenou: `ba868dcfd7a387867ef8fa6075f7eacad4d4878e` v main. Nový pracovný krok zostáva v Unreleased; nie je to prijaté vydanie jadra.
+Stav: implementované, technicky overené a Adamom prijaté 17. 10. 2026 (F-05). Základ pred zmenou: `ba868dcfd7a387867ef8fa6075f7eacad4d4878e` v main. Prijatý let je commit `8f135f934b25ec3092d805337f1929a2571c2ebe`; changelog ho uzatvára vo verzii 0.0.2.
 
 ## Dohoda a rozsah
 
@@ -35,4 +35,4 @@ Scéna má konečnú orientačnú mriežku ±80, zatiaľ bez rýchlostného limi
 
 [Sprievodca letom](../../guides/FIRST_FLIGHT.md) obsahuje otvorenie FlightTest, WASD/C, krátke skúšky, nové komponenty, parametre, súbory a ručný ekvivalent práce cez Editor API. Play Mode po overení zastavený a uložená scéna pripravená od začiatku.
 
-Adamovo prijatie prvého vizuálneho kroku je zachované v [predchádzajúcom zázname](2026-10-17-first-scene.md). Tento nový let ešte neprijal; chránený commit letu ani nová changelog verzia preto zatiaľ nevznikajú.
+Adamovo prijatie prvého vizuálneho kroku je zachované v [predchádzajúcom zázname](2026-10-17-first-scene.md). Následne Adam odskúšal let: správanie prirovnal ku Godotu a výslovne spresnil, že „takmer“ znamenalo zlepšenie vďaka viditeľným RCS. Táto spätná väzba uzatvára prijatie prvého pocitu z letu F-05; neznamená tvrdenie, že osobne zopakoval každý automatický test. Baseline `8f135f934b25ec3092d805337f1929a2571c2ebe` je odteraz chránený workflow vetva/PR/Adamovo prijatie podľa D-008 a D-013. Záznam prijatia a vydanie 0.0.2 menia iba dokumentáciu, nie odskúšaný herný kód alebo assety.

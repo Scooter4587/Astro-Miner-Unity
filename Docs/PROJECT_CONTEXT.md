@@ -1,6 +1,6 @@
 # Technický kontext projektu
 
-Kontrola: 17. 10. 2026. Prvá scéna bola vizuálne prezretá Adamom; nasledujúci prvý fyzikálny let je implementovaný a technicky overený. Adamov pocit z letu F-05 ešte čaká. Mining a palubné systémy zatiaľ neexistujú.
+Kontrola: 17. 10. 2026. Prvá scéna bola vizuálne prezretá Adamom; nasledujúci prvý fyzikálny let je implementovaný a technicky overený. Adam prijal pocit z letu F-05; baseline `8f135f9` je odteraz chránený pracovným pravidlom vetva/PR. Mining a palubné systémy zatiaľ neexistujú.
 
 ## Overený základ
 
@@ -47,10 +47,10 @@ Grafika zostáva v Assets/AstroMiner/Art/Prototype. Trysky používajú existuj�
 
 [Záznam prvého letu](development/notes/2026-10-17-first-flight.md) dokladá 6/6 PlayMode a 6/6 EditMode, živé klávesové skúšky a kameru bez odchýlky od viditeľnej lode. Drift Y 13.6799879 zostal medzi meraniami zachovaný a Full Stop dosiahol (0,0) bez trvalého kmitania. Záber letu s tryskou bol vizuálne prezretý.
 
-[Sprievodca letom](guides/FIRST_FLIGHT.md) vlastní spustenie, ovládanie, Hierarchy, Inspector, súbory a ručný ekvivalent pridania komponentov. Adamovo herné prijatie stále čaká; prijatý commit letu ešte nie je uzamknutý. Pracovné zmeny sú v Unreleased.
+[Sprievodca letom](guides/FIRST_FLIGHT.md) vlastní spustenie, ovládanie, Hierarchy, Inspector, súbory a ručný ekvivalent pridania komponentov. Adam 17. 10. 2026 let prijal po skúške a spresnil, že oproti Godotu hodnotí viditeľnú prácu RCS ako zlepšenie. Prijatý commit letu je `8f135f934b25ec3092d805337f1929a2571c2ebe`; ďalšie zásahy doň idú cez vetvu a PR podľa D-008. Prijatý krok je zapísaný ako verzia 0.0.2 v changelogu.
 
-Historický Unity Search error a Pipeline timeout sú v [SETUP.md](SETUP.md), nie nová regresia. GitHub CI spúšťa iba Node testy changelogu, nie Unity. Discord odoslal 0.0.1; nový let sa neoznamuje ako prijaté vydanie pred Adamovou skúškou.
+Historický Unity Search error a Pipeline timeout sú v [SETUP.md](SETUP.md), nie nová regresia. GitHub CI spúšťa iba Node testy changelogu, nie Unity. Discord oznámenie 0.0.2 odosiela vydávací workflow po pushi nového changelogu; výsledok doručenia sa overuje v GitHub Actions. Toto nevytvára herný build ani technickú GitHub branch protection.
 
 ## Ďalší krok
 
-Adam odskúša F-05, doladíme let a zaznamenáme prijatý commit. Potom zásahy do prijatého letu idú cez vetvu/PR podľa D-008. Statický asteroid, jeho reprezentácia a kontakt sú ďalšia samostatná úloha. Mining, zdroje, saves, ekonomika a HUD ešte nemajú implementáciu.
+Let a F-05 sú prijaté, základ je zaznamenaný. Zásahy do prijatého letu idú cez vetvu/PR podľa D-008. Statický asteroid, jeho reprezentácia a kontakt sú ďalšia samostatná úloha. Mining, zdroje, saves, ekonomika a HUD ešte nemajú implementáciu.

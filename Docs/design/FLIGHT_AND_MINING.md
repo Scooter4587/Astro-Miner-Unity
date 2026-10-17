@@ -1,6 +1,6 @@
 # Let a vŕtanie — dohodnuté jadro
 
-Stav: prvý let je implementovaný; technické dôkazy vlastní [záznam kroku](../development/notes/2026-10-17-first-flight.md). Adamov herný test F-05 ešte čaká. Mining nie je implementovaný. Kontext dáva [Herný koncept](GAME_CONCEPT.md).
+Stav: prvý let je implementovaný; technické dôkazy vlastní [záznam kroku](../development/notes/2026-10-17-first-flight.md). Adam 17. 10. 2026 prijal pocit z letu F-05; základ je commit `8f135f934b25ec3092d805337f1929a2571c2ebe`. Mining nie je implementovaný. Kontext dáva [Herný koncept](GAME_CONCEPT.md).
 
 ## Let
 
@@ -67,7 +67,7 @@ Podľa [D-008](../DECISIONS.md) sa prvý prototyp môže vyvíjať v main. Po te
 
 | Oblasť | Stav | Prijatý commit | Dôkaz |
 | --- | --- | --- | --- |
-| Let a ovládanie | Implementované; Adamovo prijatie čaká. | — | [Technický záznam](../development/notes/2026-10-17-first-flight.md); F-05 čaká. |
+| Let a ovládanie | Technicky overené a prijaté Adamom 17. 10. 2026. Odteraz zmeny cez vetvu/PR. | `8f135f934b25ec3092d805337f1929a2571c2ebe` | [Technické dôkazy a Adamova skúška](../development/notes/2026-10-17-first-flight.md); F-01 až F-04 overené, F-05 prijaté. |
 | Vrták a tunely | Zatiaľ neimplementované a neprijaté. | — | M-01 až M-05 čakajú. |
 
 Po prijatí letu môže jeho integrácia s prvým vrtákom vyžadovať vetvu ešte pred prijatím samotného vrtáka. Číselné ladenie, ak mení výsledné správanie chránenej oblasti, je tiež jej zmena.
