@@ -1,6 +1,6 @@
 # Drill režim — MVP-03A
 
-Stav: implementácia vo vetve feature/drill-mode; technické výsledky vlastní [záznam kroku](../development/notes/2026-10-17-drill-mode.md). Adamov Play test a prijatie zatiaľ čakajú. Tento krok pripravuje riadenie a statickú skúšobnú chodbu; neimplementuje ťažbu.
+Stav: implementácia vo vetve feature/drill-mode; technické výsledky vlastní [záznam kroku](../development/notes/2026-10-17-drill-mode.md). Adam po Play teste prijal pilotovanie na commite 3265d33; PR #3 je samostatný krok. Aktuálne rozšírenie o skutočné kopanie vlastní [LASER_MINING.md](LASER_MINING.md). Tento krok pripravuje riadenie a statickú skúšobnú chodbu; neimplementuje ťažbu.
 
 ## Dohodnuté správanie — D-015
 
@@ -66,6 +66,10 @@ Scene a Game majú tlačidlo Gizmos. ShipDrillDebug poskytuje Show Zones a Show 
 
 Presný návod vlastní [sprievodca skúškou](../guides/DRILL_MODE_TEST.md).
 
+## Rozšírenie MVP-03B
+
+Aktuálna mining loď má ShipLaserMiner, vlastný profil MiningDrillModePrototype so šírkou 4.0 a skutočne odoberá horninu. Pri aktívnom laseri dopredný RCS povel preverí aj celú požadovanú šírku otočenia pred nosom. C brzdí posuv/otáčanie nezávisle od držaného LMB. Pôvodné pripravené prefaby a ich scenáre zostávajú zachované; nové správanie a hodnoty vlastní [LASER_MINING.md](LASER_MINING.md).
+
 ## Akceptačné scenáre
 
 | ID | Očakávanie |
@@ -78,4 +82,4 @@ Presný návod vlastní [sprievodca skúškou](../guides/DRILL_MODE_TEST.md).
 | D-06 | Podržané vstupy neobídu R/C ani návrat fokusu. LMB náhľad nemení horninu. |
 | D-07 | Adam odskúša pocit z pohybu, rotácie, kontaktu, prechodov a čitateľnosť režimov. |
 
-D-07 čaká na Adamovu skúšku. M-01 až M-05 z jadra miningu zostávajú budúce scenáre skutočného vŕtania.
+D-07 Adam prijal po reálnom Play teste 17. 10. 2026. M-01 až M-05 z jadra miningu zostávajú budúce scenáre skutočného vŕtania.

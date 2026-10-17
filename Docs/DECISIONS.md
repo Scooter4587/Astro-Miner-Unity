@@ -20,14 +20,22 @@ Dohody sa ukladajú sem a do dokumentu, ktorý vlastní pravidlo. Identifikátor
 | D-012 | 2026-10-17 | Adam potvrdil WASD vo svetových smeroch, C jedným stlačením spustí postupný Full Stop, nový smer ho preruší a nulová rýchlosť nevyvolá otočenie. Kamera sleduje loď. Prvý fyzikálny model používa Rigidbody2D, oddelený vstup a silu/torque; skúšobné hodnoty sú v Inspectore. | [Let](design/FLIGHT_AND_MINING.md), [sprievodca](guides/FIRST_FLIGHT.md) |
 | D-013 | 2026-10-17 | Adam po reálnej skúške prijal prvý let a označil viditeľné RCS za zlepšenie oproti Godotu. Baseline letu je `8f135f934b25ec3092d805337f1929a2571c2ebe`; aktivuje sa pracovné pravidlo vetva + PR + Adamovo prijatie pre zásahy do letu podľa D-008. Technická branch protection tým nevzniká. | [Prijatie letu](design/FLIGHT_AND_MINING.md), [dôkazy](development/notes/2026-10-17-first-flight.md) |
 | D-014 | 2026-10-17 | V autorizovanom MVP-02 sa volí vstavaný Tilemap s bunkami 0.25 pre spoločný zdroj viditeľnej a pevnej horniny. TilemapCollider2D sa spája cez CompositeCollider2D Polygons na statickom tele. Bez nového runtime frameworku alebo balíkov; pracovný kontakt bez trenia/pružnosti. Adam statický kontakt prijal ako pracovný základ; PR #2 je zlúčený. Čísla nie sú finálny balance, vrták zostáva samostatný krok. | [Asteroidy](design/ASTEROIDS.md), [záznam](development/notes/2026-10-17-static-asteroid.md) |
-| D-015 | 2026-10-17 | Adam potvrdil R pre samostatný drill režim, odstavovaný hlavný motor, presné RCS, skúšobné W/S vpred/vzad a A/D otáčanie, C brzdenie bez presmerovania nosa a LMB pre zrezaný kužeľ. Prvý krok MVP-03A používa pripravenú chodbu a LMB náhľad; pocit z hrania sa bude ladiť a prijatie čaká. | [Drill režim](design/DRILL_MODE.md) |
+| D-015 | 2026-10-17 | Adam potvrdil R pre samostatný drill režim, odstavovaný hlavný motor, presné RCS, skúšobné W/S vpred/vzad a A/D otáčanie, C brzdenie bez presmerovania nosa a LMB pre zrezaný kužeľ. MVP-03A používa pripravenú chodbu a LMB náhľad; Adam pilotovanie po Play teste prijal na commite 3265d33. Samotný mining patrí do ďalšieho kroku. | [Drill režim](design/DRILL_MODE.md) |
 | D-016 | 2026-10-17 | Dohodnutý smer horniny: samostatné asteroidové dáta, oddelený vzhľad so zhodnou kolíziou, množstvo ťažby podľa skutočne odstránenej horniny, trvalé tunely a neskoršie generovanie. Jemnosť, hladký backend a výkon treba overiť; nie sú už hotovým systémom. Jeden asteroid stačí na prvé ladenie. | [Asteroidy](design/ASTEROIDS.md) |
+
+## D-017 — geometrický prototyp MVP-03B
+
+Pre autorizovaný mining krok bol zvolený lokálny skalárny grid 0.125 s lineárnym povrchom na trojuholníkoch. Jeden výpočet vytvára mesh aj polygonálne kolízne obrysy; dotknuté oblasti sa dávkujú do spoločnej Composite kolízie. Natívna skúška overila dutiny aj prechody medzi oblasťami. Ide o technicky overený prototyp na jednom asteroide; ďalšie materiály, pohyb, saves, väčšia mierka a finálna grafika tým nie sú uzamknuté. [Kontrakt](design/LASER_MINING.md), [dôkazy](development/notes/2026-10-17-laser-mining.md).
+
+## MVP-03B — schválená implementácia
+
+Adam 17. 10. 2026 schválil prvé skutočné odoberanie horniny na jednom asteroide: samostatné runtime dáta, povrchový kužeľ na LMB, spoločný obraz a kolízia, postupný priechod a návrat von. Bez Cargo, zdrojov lode a saves. Konkrétny geometrický prototyp a pracovné hodnoty vlastní [LASER_MINING.md](design/LASER_MINING.md); technické overenie a Adamovo prijatie sú samostatné.
 
 ## Otvorené — rozhodovať včas, nie všetko naraz
 
 | ID | Rozhodnutie | Kedy ho potrebujeme |
 | --- | --- | --- |
-| O-003 | D-015 rieši riadenie a skúšobný profil. Pre skutočný mining zostávajú jemnosť dát, hladký obrys, aktualizácia kolízií, odolnosť a povrchové delenie výkonu. Priechodnosť kužeľa sa musí overiť s konkrétnym trupom. | Pred skutočným odstraňovaním horniny v MVP-03B; D-016 určuje smer bez predstierania hotovej architektúry. |
+| O-003 | D-017 rieši prvý overený geometrický prototyp a jeden materiál. Otvorené zostávajú ďalšie materiály, finálna kvalita povrchu, väčšia mierka a profilovanie pri inom obsahu. Priechodnosť kužeľa sa musí overiť s konkrétnym trupom. | Pred rozšírením prototypu o danú vlastnosť; výsledky MVP-03B vlastní LASER_MINING.md. |
 | O-004 | Samostatné PR kontroly, automatické Unity testy/buildy a potrebná licencia alebo runner. | Pri prvom hernom kroku určiť lokálny základ; vzdialenú Unity CI zaviesť samostatne podľa potreby. Zatiaľ nie je nastavená. |
 | O-005 | Hranica upgradov, spracovania rudy na part, perzistentných saves a ďalšieho obsahu. | Nie sú automaticky uzavreté slovom kompletné systémy; upresniť pred ich zahrnutím do 0.1. |
 | O-007 | Konkrétne kapacity, odbery, obnova, teplotné prahy a výpadky systémov lode. | Pred príslušným systémovým krokom; ich prítomnosť v 0.1 už určuje D-010. |

@@ -14,6 +14,7 @@ namespace AstroMiner.Mining
         private Rigidbody2D _body;
         private CapsuleCollider2D _hull;
         private ShipFlightController _flight;
+        private ShipLaserMiner _miner;
         private readonly ContactPoint2D[] _contacts = new ContactPoint2D[16];
         private readonly RaycastHit2D[] _castHits = new RaycastHit2D[16];
         private ContactFilter2D _solidFilter;
@@ -38,6 +39,7 @@ namespace AstroMiner.Mining
             _body = GetComponent<Rigidbody2D>();
             _hull = GetComponent<CapsuleCollider2D>();
             _flight = GetComponent<ShipFlightController>();
+            _miner = GetComponent<ShipLaserMiner>();
             _solidFilter = new ContactFilter2D { useTriggers = false };
             if (_profile != null && _emitter != null) return;
             Debug.LogError("Drill controller needs its profile and emitter.", this);
@@ -67,7 +69,7 @@ namespace AstroMiner.Mining
         public void RequestStop()
         {
             if (!IsEngaged) return;
-            ClearInput();
+            _forward = _turn = 0f;
             IsStopping = true;
         }
 
@@ -105,6 +107,15 @@ namespace AstroMiner.Mining
             Vector2 nose = Quaternion.Euler(0f, 0f, _body.rotation) * Vector2.up;
             Vector2 desiredVelocity = canMove ? nose * (_forward * _profile.MoveSpeed) : Vector2.zero;
             float desiredTurnRate = canMove ? _turn * _profile.TurnSpeed : 0f;
+
+            // While cutting, clear the complete turning corridor before its near plane passes the shoulders.
+            if (_miner != null && _miner.isActiveAndEnabled && _forward > 0f && BeamPreviewActive)
+            {
+                float speed = desiredVelocity.magnitude;
+                float safe = _miner.GetSafeForwardSpeed(speed, _profile.Acceleration,
+                    _profile.ContactSkin, 2f * (GetTurnRadius() + _profile.TurnClearance));
+                if (speed > 0f) desiredVelocity *= safe / speed;
+            }
 
             // Full-hull cast limits the commanded approach speed, not the actual momentum.
             if (desiredVelocity.sqrMagnitude > 0f)
@@ -154,6 +165,9 @@ namespace AstroMiner.Mining
             if (IsStopping && velocity.magnitude <= 0.02f &&
                 Mathf.Abs(_body.angularVelocity) <= 0.1f) IsStopping = false;
         }
+
+        public MiningBeam GetMiningBeam() => new MiningBeam(_emitter.position, _emitter.up,
+            _profile.BeamRange, _profile.BeamNearWidth, _profile.BeamHalfAngle);
 
         public ContactPoint2D GetContact(int index) => _contacts[index];
 

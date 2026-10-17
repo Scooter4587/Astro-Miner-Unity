@@ -17,7 +17,7 @@ namespace AstroMiner.Mining
         [Header("Contact and clearance")]
         [SerializeField, Min(0.001f)] private float _contactSkin = 0.08f;
         [SerializeField, Min(0f)] private float _turnClearance = 0.35f;
-        [Header("Beam preview - no excavation in this step")]
+        [Header("Beam working profile")]
         [SerializeField, Min(0.01f)] private float _beamRange = 2.5f;
         [SerializeField, Min(0.01f)] private float _beamNearWidth = 3.2f;
         [SerializeField, Range(1f, 60f)] private float _beamHalfAngle = 15f;

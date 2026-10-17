@@ -1,20 +1,30 @@
 # Technický kontext projektu
 
-Kontrola: 17. 10. 2026. Prvá scéna bola vizuálne prezretá Adamom; nasledujúci prvý fyzikálny let je implementovaný a technicky overený. Adam prijal pocit z letu F-05; baseline `8f135f9` je odteraz chránený pracovným pravidlom vetva/PR. Statický asteroid a kontakt sú technicky overené a Adamom prijaté ako pracovný základ; PR #2 je zlúčený do main (b85f37f). MVP-03A teraz pridáva drill riadenie a pripravenú chodbu; Adamovo prijatie čaká. Samotná ťažba a palubné systémy zatiaľ neexistujú.
+Kontrola: 17. 10. 2026. Prvá scéna bola vizuálne prezretá Adamom; nasledujúci prvý fyzikálny let je implementovaný a technicky overený. Adam prijal pocit z letu F-05; baseline `8f135f9` je odteraz chránený pracovným pravidlom vetva/PR. Statický asteroid a kontakt sú technicky overené a Adamom prijaté ako pracovný základ; PR #2 je zlúčený do main (b85f37f). MVP-03A pridáva drill riadenie a pripravenú chodbu; Adam pilotovanie prijal na 3265d33. Aktuálne MVP-03B implementuje prvé skutočné odoberanie horniny; 21/21 PlayMode a 11/11 EditMode prípadov prešlo, jeho Adamovo prijatie čaká. Palubné systémy zatiaľ neexistujú.
 
 ## Overený základ
 
 | Oblasť | Stav |
 | --- | --- |
-| Projekt | `C:\Development\Astro Miner Unity`, GitHub `Scooter4587/Astro-Miner-Unity`, main. Žiadna súvislosť s Tanker Service. |
+| Projekt | `C:\Development\Astro Miner Unity`, GitHub `Scooter4587/Astro-Miner-Unity`; aktuálny mining krok vo feature/laser-excavation nad feature/drill-mode. Žiadna súvislosť s Tanker Service. |
 | Editor | Unity 6000.6.2f1, rev. 770e33f6875c; živé spojenie overené. |
 | Rendering | Universal 2D, URP 17.6.0, Sprite-Unlit materiál prototypu. |
 | Vstup | Input System 1.20.0; samostatný ShipKeyboardInput číta Keyboard.current. WASD/C podľa D-012, bez action map a rebindingu. |
-| Testovanie | Test Framework 1.8.0; 6 EditMode prípadov parallaxu; nová celá PlayMode sada prešla 17/17 (7 drill, 6 let, 4 asteroid/kontakt). |
+| Testovanie | Test Framework 1.8.0; 11/11 EditMode (5 mining/geometria, 6 parallax) a 21/21 PlayMode (4 mining, 7 drill, 6 let, 4 asteroid/kontakt) prešlo. |
 | Nástroje | Pipeline 0.8.0-exp.1, Unity IDE 2.0.26 a VS Code; prvotné overenie debuggeru v [SETUP.md](SETUP.md). |
 | Cieľ | Windows, klávesnica/myš; Player build aktuálnej scény ešte nebol overený. |
 
 Verzie určujú [manifest.json](../Packages/manifest.json) a [packages-lock.json](../Packages/packages-lock.json). Letový krok nezmenil balíky, pipeline ani ProjectSettings. Predchádzajúci scénový krok pridal predvolený SceneTemplateSettings.json.
+
+## Aktuálna scéna — MVP-03B
+
+FlightTest používa ShipMiningPrototype a MineableAsteroid. Loď a kamera začínajú pri (18,4), plný asteroid pri (18,16). Staršie odseky nižšie označené ako základ pred MVP-03A zachovávajú históriu; aktuálne spustenie vlastní [LASER_MINING_TEST.md](guides/LASER_MINING_TEST.md).
+
+AsteroidDefinition PrototypeAsteroid má 191 × 153 vzoriek po 0.125 v lokálnych súradniciach a počiatočnú plochu 282.286438 jednotiek². AsteroidRuntime vytvára nezávislý AsteroidField. AsteroidSurface odvodzuje mesh a kolízne obrysy z rovnakých lineárne orezaných trojuholníkov. Tridsať AsteroidChunk objektov po najviac 32 × 32 bunkách zdieľa jeden statický Rigidbody2D a CompositeCollider2D. Obnovujú sa iba dotknuté oblasti, potom sa spoločne vygeneruje kolízia pred fyzikou.
+
+Interior je neblokujúci mesh pôvodného pôdorysu. ShipLaserMiner podáva profil a pracovný rozpočet cez explicitnú scénovú referenciu na jeden asteroid. Pri aktívnom laseri dopredný RCS pohyb vyžaduje vyčistenú šírku otočenia pred nosom; nemaže sa hornina okolo trupu. C nezruší držané LMB. Povrch je jemnejší polygonálny prototyp, bez finálnej grafiky. Pôvodné ShipPlaceholder, ShipDrillPrototype, StaticAsteroid a DrillTestAsteroid zostávajú zachované.
+
+Parametre vlastní [LASER_MINING.md](design/LASER_MINING.md). Nevznikol nový balík, runtime svetový generátor, Cargo, spotreba zdrojov ani save/load.
 
 ## Scéna a štart — základ pred MVP-03A
 
@@ -53,11 +63,11 @@ Grafika zostáva v Assets/AstroMiner/Art/Prototype. Trysky používajú existuj�
 
 Historický Unity Search error a Pipeline timeout sú v [SETUP.md](SETUP.md), nie nová regresia. GitHub CI spúšťa iba Node testy changelogu, nie Unity. Discord oznámenie 0.0.2 odosiela vydávací workflow po pushi nového changelogu; výsledok doručenia sa overuje v GitHub Actions. Toto nevytvára herný build ani technickú GitHub branch protection.
 
-## Ďalší krok
+## Historický ďalší krok po MVP-02
 
 Let a F-05 sú prijaté, základ je zaznamenaný. Zásahy do prijatého letu idú cez vetvu/PR podľa D-008. Statický asteroid a kontakt sú prijaté a v main. Nasleduje samostatný návrh prvého vrtáka a priechodného tunela; dnešné parametre kolízie, odrazov a akcelerácie zostávajú pracovné a môžu sa ďalej ladiť. Mining, zdroje, saves, ekonomika a HUD ešte nemajú implementáciu.
 
-## MVP-03A — drill riadenie, stav vetvy
+## MVP-03A — zachovaný základ riadenia
 
 FlightTest používa ShipDrillPrototype a DrillTestAsteroid, varianty pôvodných prijatých prefabov. Loď a kamera začínajú pri (18,4); asteroid ostáva pri (18,16). Vnútri je vopred vytvorená L chodba so stredovou osou (18,5) → (18,19) → (24,19) a neblokujúcou tmavou podlahou. Nejde o výsledok runtime ťažby.
 

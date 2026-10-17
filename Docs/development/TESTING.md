@@ -4,7 +4,7 @@ Cieľom je overovať hráčske pravidlá a dôležité hranice. Počet testov s�
 
 ## Aktuálny stav
 
-- Unity Test Framework `1.8.0` je nainštalovaný. AstroMiner.EditModeTests má 6 prípadov parallaxu a AstroMiner.PlayModeTests 17 scenárov (7 drill, 6 let a 4 asteroid/kontakt); všetky prešli. FlightTest bola navyše overená živými vstupmi v Play Mode.
+- Unity Test Framework `1.8.0` je nainštalovaný. AstroMiner.EditModeTests má 11 prípadov (5 mining/geometria, 6 parallax) a AstroMiner.PlayModeTests 21 scenárov (4 mining, 7 drill, 6 let a 4 asteroid/kontakt); všetky prešli. FlightTest bola navyše overená živými vstupmi v Play Mode.
 - Existuje 6 Node testov pre výber changelog verzie a formát Discord správy. Nie sú dôkazom fungovania letu.
 - CI zatiaľ spúšťa tieto Node testy v oznamovacom workflow po zmene changelogu v main. Neoveruje každý PR a nekompiluje Unity.
 - Setup má doložené overenie kompilácie editorového nástroja, Play Mode šablóny a debuggeru v [SETUP.md](../SETUP.md).
@@ -51,6 +51,14 @@ Dry run nevyužíva webhook a neodosiela správu. Unity testy možno spustiť v 
 Pri dôležitom teste zapíš commit alebo jednoznačný stav vetvy, scénu/scenár, nástroj, očakávaný a skutočný výsledok. Používaj `prešlo`, `zlyhalo`, `nevykonané` alebo `neplatí` s dôvodom. Pri hernom kroku uveď zvlášť `Adamov test: čaká/prešlo/zlyhalo` a jeho vyjadrenie, ak existuje.
 
 Console bez nových chýb je jeden dôkaz; sama nepotvrdzuje správny pohyb. Zelené Node testy nepotvrdzujú kompiláciu Unity. Úspešný build nepotvrdzuje príjemný let. Dokumentácia nemá tieto hranice skrývať.
+
+## MVP-03B — skutočné kopanie
+
+Päť EditMode scenárov overuje množstvo podľa skutočnej plochy a limit práce, tienenie prednou vrstvou/dosah, presný zásah tenkej vrstvy, vlastníctvo dát a zhodu meshu s natívnou kolíziou v uzavretej dutine aj cez hranice oblastí.
+
+Štyri nové PlayMode scenáre používajú skutočné MineableAsteroid a ShipMiningPrototype: LMB iba v pripravenom Drill, nezávislé brzdenie C a pustenie laseru, nemenný počiatočný asset, rovný tunel s 360° obratom bez aktívneho laseru a návratom, diagonála a pravouhlá odbočka cez oblasti. Aktualizovaná Composite kolízia sa porovnáva s dátovým poľom na vzorkách celého pôdorysu.
+
+Konečný beh vykonal 21/21 PlayMode za 107.79 s a 11/11 EditMode za 0.31 s. Prázdny beh s nulou prípadov bol odmietnutý; po RequestScriptReload Test Runner skutočne vykonal všetky prípady. Podrobnosti, živú scénu a obmedzenia vlastní [záznam](notes/2026-10-17-laser-mining.md).
 
 ## Systémy lode v 0.1
 

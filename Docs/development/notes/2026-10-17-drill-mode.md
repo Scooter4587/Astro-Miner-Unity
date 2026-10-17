@@ -1,6 +1,6 @@
 # Drill režim a pripravená chodba — 17. 10. 2026
 
-Stav: implementované a technicky overené vo feature/drill-mode, Unreleased; Adamov test a prijatie čakajú.
+Stav: implementované a technicky overené vo feature/drill-mode, Unreleased; Adam po Play teste prijal pilotovanie na commite 3265d33c2622acf82accbc85820f146f6bd300e3. Samotné kopanie toto prijatie nezahŕňa.
 
 ## Rozsah
 
@@ -34,7 +34,7 @@ Skutočný mining, runtime stav asteroidu, odolnosť, suroviny, hladké steny, s
 | EditMode | 6/6 prešlo, 0.03 s; existujúce parallax scenáre. Celkom 23 Unity prípadov v tomto stave. |
 | Živá FlightTest a obraz | Cez verejné controller povely iba v Play: loď vošla do chodby a zastavila pri (18,12.4553719), velocity (0,0), angular velocity 0, Mode Drill, náhľad zapnutý, hlavný motor vypnutý, kamera bez odchýlky. Game záber bol zachytený a prezretý. Ide o scénovú skúšku cez API; Adamov pocit z klávesnice tým nenahrádzame. |
 | Dokumentácia, meta a diff | 55 unikátnych GUID, bez chýbajúcich meta; odkazy overené, žiadne zmeny pôvodných prefabov, Packages ani ProjectSettings. C#/Markdown/asmdef bez whitespace chýb; Unity generované assety ponechávajú štandardné prázdne serializované polia. |
-| Adamov test | Čaká; technické testy nenahrádzajú pocit z hrania. |
+| Adamov test | Prijaté 17. 10. 2026: potvrdil, že pilotovanie funguje a dáva zmysel. Upozornil, že reálna skúška miningu príde až pri skutočnom kopaní. |
 | Player build | Nevykonané; tento krok je skúška ovládania v Editore. |
 
 Po skúškach je uložená čistá zastavená FlightTest: loď (18,4), Mode Flight, vstup zapnutý, 0 missing scripts a 0 aktuálnych Console errors/warnings. Neuložili sa runtime presuny ani testovacie povely.
@@ -45,4 +45,4 @@ D-01 až D-06 vlastní kontrakt. Prijaté letové scenáre F a statický kontakt
 
 Postup, nové Unity objekty, Inspector a ladenie vlastní [sprievodca](../../guides/DRILL_MODE_TEST.md).
 
-Zmena ide do PR a čaká na Adamovo odskúšanie. Merge, nová verzia a Discord vydanie zatiaľ neprebehli.
+Zmena je v PR #3 a Adam pilotovanie prijal. Nový mining krok pokračuje oddelene z tohto základu. Samostatné zlúčenie, nová verzia a Discord vydanie týmto záznamom nie sú tvrdené.
