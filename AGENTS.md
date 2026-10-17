@@ -13,6 +13,7 @@ Pred návrhom architektúry alebo zmenou projektu prečítaj:
 Podľa úlohy potom čítaj:
 
 - Herný návrh alebo nový systém: [GAME_CONCEPT.md](Docs/design/GAME_CONCEPT.md).
+- Skutočné kopanie a dátový asteroid: [LASER_MINING.md](Docs/design/LASER_MINING.md) a [Play sprievodca](Docs/guides/LASER_MINING_TEST.md).
 - Drill režim R, RCS a jeho skúška: [DRILL_MODE.md](Docs/design/DRILL_MODE.md) a [sprievodca](Docs/guides/DRILL_MODE_TEST.md).
 - Let, ovládanie, vrták, tunely alebo asteroid: [FLIGHT_AND_MINING.md](Docs/design/FLIGHT_AND_MINING.md); pri hornine aj [ASTEROIDS.md](Docs/design/ASTEROIDS.md).
 - Implementácia, oprava alebo overovanie: [TESTING.md](Docs/development/TESTING.md).

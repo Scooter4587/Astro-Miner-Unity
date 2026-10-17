@@ -1,5 +1,7 @@
 # Skúška drill ovládania a orientácia v Unity
 
+Aktuálnu FlightTest s plným asteroidom a skutočným LMB opisuje [LASER_MINING_TEST.md](LASER_MINING_TEST.md). Nasledujúci postup zachováva pripravenú skúšku MVP-03A a jej prefaby.
+
 Toto je MVP-03A: R režim, RCS pohyb, kontakt a náhľad lúča. Chodba je pripravená vopred. LMB ešte neodstraňuje horninu a nič nezbiera.
 
 ## Spustenie

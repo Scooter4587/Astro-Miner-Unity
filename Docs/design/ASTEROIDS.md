@@ -2,6 +2,8 @@
 
 Stav: MVP-02 technicky overené, Adamom prijaté ako pracovný základ a zlúčené cez PR #2 do main (b85f37f). Ide o jeden statický asteroid vo FlightTest. Prijatý let zostáva podľa [jadra](FLIGHT_AND_MINING.md) na baseline 8f135f9; jeho kód ani prefab sa nemenili.
 
+Aktuálny geometrický backend MVP-03B vlastní [LASER_MINING.md](LASER_MINING.md). Nasledujúci popis zachováva prijatý základ MVP-02 a jeho pôvodné prefaby.
+
 ## Výsledok kroku
 
 Jeden nepravidelný asteroid je pri (18,16), čiastočne viditeľný doprava hore už zo štartu. Loď môže priletieť, zabrzdiť, dotknúť sa povrchu, pohybovať sa popri ňom a odletieť. Hornina sa neodstraňuje, vrták na LMB zostáva neaktívny a kontakt ešte nemá hull/damage model.
@@ -60,4 +62,4 @@ Nasledujúce pravidlá sú dohoda pre ďalší vývoj, nie už implementovaný r
 - Hladší obrys cez okrajové Tile varianty alebo vlastnú geometriu zostáva kandidátom na malé overenie. Zvolený finálny backend, rozlíšenie ani výkon tým nie sú dokázané.
 - Aktualizácie sa majú dávkovať; potrebu delenia do menších oblastí rozhodne meranie pri kopaní. Pre prvé skúšky stačí jeden asteroid.
 
-MVP-03A používa variantu DrillTestAsteroid s pripravenou chodbou a neblokujúcim vnútrom podľa [drill kontraktu](DRILL_MODE.md). Pôvodný StaticAsteroid prefab aj jeho prijaté integračné scenáre zostávajú zachované. Nevznikol ešte runtime generátor, dátová vrstva miningu ani save/load.
+MVP-03A používa variantu DrillTestAsteroid s pripravenou chodbou a neblokujúcim vnútrom podľa [drill kontraktu](DRILL_MODE.md). Pôvodný StaticAsteroid prefab aj jeho prijaté integračné scenáre zostávajú zachované. MVP-03B následne pridal vlastnú dátovú vrstvu a priebežne menenú geometriu podľa [LASER_MINING.md](LASER_MINING.md). Runtime generátor ani save/load tým nevznikli.

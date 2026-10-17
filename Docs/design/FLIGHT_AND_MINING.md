@@ -1,6 +1,6 @@
 # Let a vŕtanie — dohodnuté jadro
 
-Stav: prvý let je implementovaný; technické dôkazy vlastní [záznam kroku](../development/notes/2026-10-17-first-flight.md). Adam 17. 10. 2026 prijal pocit z letu F-05; základ je commit `8f135f934b25ec3092d805337f1929a2571c2ebe`. Mining nie je implementovaný. Kontext dáva [Herný koncept](GAME_CONCEPT.md).
+Stav: prvý let je implementovaný; technické dôkazy vlastní [záznam kroku](../development/notes/2026-10-17-first-flight.md). Adam 17. 10. 2026 prijal pocit z letu F-05; základ je commit `8f135f934b25ec3092d805337f1929a2571c2ebe`. MVP-03B teraz implementuje mining vo vlastnej vetve podľa [LASER_MINING.md](LASER_MINING.md); jeho overenie a Adamovo prijatie sú samostatné. Kontext dáva [Herný koncept](GAME_CONCEPT.md).
 
 ## Let
 
@@ -26,7 +26,7 @@ Skúšobné parametre v Ship Flight Controller: Main Acceleration 4 jednotky/s²
 
 ## Drill riadenie — MVP-03A
 
-D-015 pridáva samostatný R režim, RCS posuv/otáčanie a C bez retrográdneho otočenia. Implementované správanie, profil a akceptačné scenáre vlastní [DRILL_MODE.md](DRILL_MODE.md). Samotné odstraňovanie horniny ani získavanie surovín ešte neexistujú. Adamov test nového režimu čaká.
+D-015 pridáva samostatný R režim, RCS posuv/otáčanie a C bez retrográdneho otočenia. Implementované správanie, profil a akceptačné scenáre vlastní [DRILL_MODE.md](DRILL_MODE.md). Samotné odstraňovanie horniny ani získavanie surovín ešte neexistujú. Adam pilotovanie MVP-03A prijal na commite 3265d33. Skutočný mining MVP-03B má vlastný [kontrakt](LASER_MINING.md) a čaká na svoje overenie a prijatie.
 
 ## Vŕtanie a priestor
 
@@ -37,7 +37,7 @@ D-015 pridáva samostatný R režim, RCS posuv/otáčanie a C bez retrográdneho
 - Hornina aj jej kolízia sa odstraňujú konzistentne; tmavšia vnútorná vrstva po vyvŕtaní neblokuje loď.
 - Stabilizácia sama nemaže skalu za loďou alebo mimo dosahu vrtáka. Mazanie kruhu okolo celého trupu, teleport a vypnutie kolízií nie sú schváleným riešením manévrovania.
 
-MVP-02 zvolil vstavaný Tilemap s bunkami 0.25 a spoločnou Composite kolíziou podľa [ASTEROIDS.md](ASTEROIDS.md), D-014. Statický kontakt je implementovaný; vrták ani mazanie horniny ešte nie. MVP-03A overuje cúvanie, stabilizáciu a prechody v pripravenej chodbe. Skutočný mining musí ešte vyriešiť aktualizáciu kolízií, povrchové zásahy kužeľa a výsledný priechod.
+MVP-02 zvolil vstavaný Tilemap s bunkami 0.25 podľa [ASTEROIDS.md](ASTEROIDS.md), D-014. Jeho pôvodný prefab zostáva prijatou regresnou skúškou. MVP-03A overil cúvanie, stabilizáciu a prechody v pripravenej chodbe. Aktuálny MVP-03B používa samostatné dáta po 0.125, polygonálny mesh a zhodné kolízne obrysy podľa [LASER_MINING.md](LASER_MINING.md). Mining má vlastné technické dôkazy a čakajúce Adamovo prijatie.
 
 ## Asteroid
 
@@ -63,7 +63,7 @@ Tieto scenáre sú očakávania pre budúce kroky, nie tvrdenie o úspešných t
 | M-05 | Tunel cez asteroid nespustí fragmentáciu a odkryté vnútro neblokuje priechod. | Statický asteroid a vrták. |
 | A-01 | Drift a rotácia nenarušia priechod, lokálne vŕtanie ani uvoľnenie stabilizácie. | Až pohybujúci sa asteroid. |
 
-Aktuálny krok MVP-03A rieši scenáre D z DRILL_MODE.md na pripravenej dutine; scenáre M ešte nepotvrdzuje. Celkové predvedenie prvého herného prototypu neskôr spojí prílet, brzdenie, zakrivený tunel, komoru, otočenie a výlet von.
+MVP-03A rieši scenáre D z DRILL_MODE.md na pripravenej dutine. Skutočné scenáre M rieši MVP-03B podľa [záznamu](../development/notes/2026-10-17-laser-mining.md); technické overenie a Adamovo prijatie sú oddelené. Celkové predvedenie prvého herného prototypu neskôr spojí prílet, brzdenie, zakrivený tunel, komoru, otočenie a výlet von.
 
 ## Prijatie a ochrana základu
 
@@ -72,6 +72,6 @@ Podľa [D-008](../DECISIONS.md) sa prvý prototyp môže vyvíjať v main. Po te
 | Oblasť | Stav | Prijatý commit | Dôkaz |
 | --- | --- | --- | --- |
 | Let a ovládanie | Technicky overené a prijaté Adamom 17. 10. 2026. Odteraz zmeny cez vetvu/PR. | `8f135f934b25ec3092d805337f1929a2571c2ebe` | [Technické dôkazy a Adamova skúška](../development/notes/2026-10-17-first-flight.md); F-01 až F-04 overené, F-05 prijaté. |
-| Vrták a tunely | Zatiaľ neimplementované a neprijaté. | — | M-01 až M-05 čakajú. |
+| Vrták a tunely | MVP-03B implementované a technicky overené vo vetve; Adamovo prijatie čaká. | — | [Kontrakt](LASER_MINING.md) a [dôkazy](../development/notes/2026-10-17-laser-mining.md). |
 
 Po prijatí letu môže jeho integrácia s prvým vrtákom vyžadovať vetvu ešte pred prijatím samotného vrtáka. Číselné ladenie, ak mení výsledné správanie chránenej oblasti, je tiež jej zmena.

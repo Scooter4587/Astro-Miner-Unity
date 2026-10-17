@@ -6,17 +6,26 @@ Nový Unity vývoj Astro Miner začína vlastným číslovaním. Najnovšie vyda
 
 ### Added
 - MVP-03A: prepínanie R medzi letom a presným RCS drill režimom, stabilizácia pri vstupe, W/S posuv, A/D otáčanie a C brzdenie bez presmerovania nosa.
-- Nastavovací DrillModePrototype profil, režimový prstenec, viditeľné translačné RCS, LMB náhľad kužeľa a prepínateľné Gizmos zóny.
-- Prefab varianty lode a jedného asteroidu s pripravenou chodbou v tvare L a neblokujúcim vnútrom.
-- Sedem PlayMode scenárov pre režimy, riadenie, kontakt, otočenie, vstup a fokus.
+- Nastavovací drill profil, režimový prstenec, viditeľné translačné RCS, LMB pracovný kužeľ a prepínateľné Gizmos zóny.
+- Zachované prefab varianty lode a asteroidu s pripravenou L chodbou pre skúšky prijatého pilotovania.
+- MVP-03B: skutočné povrchové kopanie na LMB v jednom plnom statickom asteroide, nezávislé runtime dáta a odoberané množstvo podľa skutočne odstránenej plochy.
+- Jemnejší polygonálny povrch po 0.125 so zhodnou kolíziou, lokálna obnova 30 oblastí, spoločná Composite kolízia a neblokujúce tmavé vnútro.
+- Samostatné MiningDrillModePrototype a LaserMiningPrototype profily; kontrola vyčistenej šírky pred dopredným postupom pri aktívnom laseri.
+- 7 drill PlayMode, 4 mining PlayMode a 5 mining/geometria EditMode scenárov; celá sada má 21 PlayMode a 11 EditMode úspešných prípadov.
+
+### Changed
+- FlightTest začína pred plnou stenou. Chodba vzniká až pri runtime kopaní, pôvodné pripravené prefaby zostávajú zachované.
+- C v drill režime brzdí posuv a otáčanie nezávisle od držaného LMB.
 
 ### Documentation
-- Kontrakt drill režimu, jeho Unity sprievodca a dohody o dátach horniny, geometrii a množstve ťažby.
+- Kontrakty drill režimu a skutočného miningu, Unity sprievodcovia, pracovné profily, dôkazy skúšok a poznatky o geometrii.
+- Adamovo prijatie pilotovania MVP-03A je zaznamenané na 3265d33; skutočné kopanie má vlastné čakajúce prijatie.
 
 ### Known limitations
-- Adamov Play test a prijatie čakajú; táto zmena ešte nie je vydanie.
-- LMB je iba náhľad. Chodba vznikla pri authoringu; runtime mining, suroviny, hladké steny a saves ešte nie sú implementované.
-- Prvá skúška používa existujúce bunky 0.25; výkon budúceho menenia horniny sa tým neoveril.
+- Adamov Play test a prijatie skutočného kopania čakajú; tento krok ešte nie je vydanie.
+- Jeden statický asteroid, jeden uniformný materiál a prototypový povrch; plynulé oblúky a pocit z čerstvých stien sa budú ladiť.
+- Cargo, získavanie rudy do inventára, zdroje lode, generátor sveta a save/load ešte nie sú implementované. Stop Play obnoví pôvodný asteroid.
+- Výsledky v Editore nie sú overením samostatného Player buildu ani výkonu väčšieho sveta.
 
 ## [0.0.3] - 2026-10-17
 

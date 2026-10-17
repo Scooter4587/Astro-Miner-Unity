@@ -1,6 +1,6 @@
 # Prvý let — FlightTest
 
-Aktuálna FlightTest už používa pripravenú drill chodbu a štart pri (18,4). Pre dnešnú skúšku začni [drill sprievodcom](DRILL_MODE_TEST.md); text nižšie zachováva predchádzajúci krok.
+Aktuálna FlightTest používa plný dátový asteroid a štart pri (18,4). Pre dnešnú skúšku začni [sprievodcom skutočným kopaním](LASER_MINING_TEST.md); text nižšie zachováva predchádzajúci krok.
 
 Stav 17. 10. 2026: let je implementovaný, skompilovaný a technicky overený. Adam prvý pocit z letu prijal; baseline je `8f135f9`. Ťažba ani palubné zdroje nie sú aktívne. Stále pracujeme s jednoduchou grafikou.
 

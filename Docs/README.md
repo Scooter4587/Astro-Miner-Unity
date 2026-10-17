@@ -6,6 +6,9 @@ Toto je vstupný bod pre obnovenie kontextu. Dokumenty žijú spolu s projektom 
 
 | Dokument | Úloha |
 | --- | --- |
+| [Skutočné kopanie — kontrakt](design/LASER_MINING.md) | Povrchové odoberanie, dátový asteroid, spoločný mesh a kolízia a pracovné hodnoty MVP-03B. |
+| [Skutočné kopanie — skúška](guides/LASER_MINING_TEST.md) | Aktuálny Play test a orientácia v nových Unity objektoch. |
+| [Skutočné kopanie — dôkazy](development/notes/2026-10-17-laser-mining.md) | Rozsah, technické skúšky, obmedzenia a prijatie. |
 | [Drill režim — kontrakt](design/DRILL_MODE.md) | R/WASD/C, prechody, profil, debug a hranice MVP-03A. |
 | [Drill režim — dôkazy](development/notes/2026-10-17-drill-mode.md) | Rozsah, skutočné skúšky a čakajúce prijatie. |
 | [Drill režim — skúška](guides/DRILL_MODE_TEST.md) | Presná Play skúška pripravenej chodby a orientácia v Unity. |
