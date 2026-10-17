@@ -31,6 +31,8 @@ Nerob plošný audit pri každej malej úlohe. Čítaj spoločný základ a konk
 ## Spolupráca a rozsah
 
 - Komunikuj po slovensky, priamo a konkrétne. Vysvetli, čo sa stavia a ako to overíme.
+- Adam sa počas vývoja učí Unity. Pri konkrétnom kroku vysvetli nové objekty, komponenty, Inspector, scény a prefaby jednoduchým jazykom a ukáž ich na skutočne dotknutých objektoch/súboroch. Uč priebežne, bez zahltenia teóriou.
+- Pri odovzdaní vždy uveď presnú scénu, postup spustenia cez Play, platné ovládanie, očakávané výsledky skúšky a ktoré parametre môže Adam bezpečne ladiť. Rozlišuj pripravený výsledok od príkladu budúcej implementácie.
 - Postupuj po malých dohodnutých krokoch. Pred hernou implementáciou ujasni výsledok, akceptačné kritériá a čo do kroku nepatrí.
 - Keď je rozsah schválený, dokonči potrebnú implementáciu a overenie bez opakovaných otázok na už udelený súhlas.
 - Git postup podľa novšieho D-008: úvodný prototyp možno robiť priamo v `main`. Po prijatí letu alebo vrtáka sa zásahy do príslušného jadra robia cez vetvu, PR a Adamovo odskúšanie/schválenie. Pravidlo platí aj pre nové systémy meniace už prijaté jadro. Technické overenie nenahrádza herné prijatie.

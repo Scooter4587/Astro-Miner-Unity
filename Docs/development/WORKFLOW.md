@@ -38,3 +38,27 @@ Schválené zadanie oprávňuje vykonať implementáciu a kontroly. Nepýtaj sa 
 Hotový krok spĺňa dohodnutý výsledok, má primerané úspešné overenie, pravdivú dokumentáciu a záznam Adamovho prijatia, ak sa posudzuje herné správanie. `Technicky overené, čaká na Adamov test` je platný priebežný stav.
 
 Dokumentačný krok overuje odkazy, súlad a stav; nevyžaduje zbytočný Unity build. Povinné PR kontroly ani Unity build CI zatiaľ nie sú nastavené. Prvé testovacie assemblies vzniknú s konkrétnym herným kódom. Zlyhanie Discordu treba zaznamenať a vyriešiť bez slepého opakovaného odosielania; nemení spätne výsledok hry.
+
+## Nástroje, odovzdanie a priebežné učenie
+
+Pracujeme v jednom lokálnom projekte `C:\Development\Astro Miner Unity`. Unity a VS Code používajú jeho rovnaké súbory. Git zaznamenáva lokálne verzie; push ich odošle do GitHub repo. GitHub Desktop slúži na prezeranie zmien a histórie správneho lokálneho repo. Na skúšanie výsledku na tomto PC netreba ďalší klon.
+
+| Nástroj | Úloha |
+| --- | --- |
+| Lokálny priečinok | Kód, scény, prefaby, assety, nastavenia a dokumentácia. |
+| Unity Editor | Skladanie scény a komponentov, konfigurácia cez Inspector, kompilácia a skúšanie cez Play Mode. |
+| VS Code | Čítanie a úprava C# a dokumentácie, debugger. Uložené skripty Unity po obnovení spracuje a skompiluje. |
+| Blender | Tvorba grafických podkladov, keď ich konkrétny krok potrebuje; exportované modely alebo renderované sprity potom importujeme do Unity. Prvý let môže použiť placeholdery. Spojenie s Blenderom sa overí pred prvým použitím. |
+| Git a GitHub | Uloženie zmysluplných krokov a vzdialená história. Oznamovanie nového vydania rieši samostatný Discord workflow. |
+
+Pri každom kroku:
+
+1. Dohodneme malý výsledok a skúšku, ktorou sa overí.
+2. Agent vysvetlí, čo vytvorí v Unity a čo napíše do súborov, potom vykoná dohodnutú prácu. Scény a komponenty mení cez Editor, C# zdroje priamo.
+3. Agent najprv overí kompiláciu a relevantné správanie/testy. Ak overenie nebolo dostupné, označí ho.
+4. Adam dostane konkrétny návod: presná scéna, spustenie cez Play, ovládanie, očakávaný výsledok a parametre na skúšobné ladenie. Pred zmenami alebo ďalším testom sa dohodne, kto práve ovláda Editor, aby si zásahy neprekážali.
+5. Adam skúsi herný pocit a opíše rozdiel od očakávania. Úpravy, overenie a prijatie sa zaznamenajú podľa aktuálneho Git režimu.
+
+Agent priebežne učí pojmy na reálnom kroku: GameObject ako objekt v scéne, komponent ako jeho schopnosť/nastavenie, Inspector ako miesto úpravy komponentov, prefab ako opakovateľný uložený objekt a scéna ako uložená zostava prostredia. Nedáva dlhú teóriu dopredu a nevydáva plánovanú scénu či skript za existujúci súbor.
+
+Pri ladení vysvetlí, ktoré zmeny sú iba počas Play Mode a ktoré sa ukladajú do projektu; stabilné hodnoty uložíme vedome. Výsledky priebežne skúšame v Editore a pri príslušnom míľniku aj ako samostatný Windows build.
