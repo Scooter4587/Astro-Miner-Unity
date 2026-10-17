@@ -20,7 +20,7 @@ Cieľová podoba: hrateľná Windows verzia s placeholder grafikou. `0.1.0` je v
 | --- | --- | --- | --- |
 | MVP-00 — prostredie a kontext | Unity, VS Code, Git, dokumentácia a Discord pripravené. | Doložený setup, správny projekt, živé spojenie s Editorom a odoslané 0.0.1. | Technický základ overený. |
 | MVP-01 — letová skúšobňa | Jedna loď, orientačné body, kamera, smer z klávesnice, RCS, motor po zarovnaní a Full Stop na C. | F-01 až F-04 overené testami/Play Mode, F-05 Adamov pocit z letu. Potom záznam prijatého commitu letu. | Dokončené: technicky overené a Adamom prijaté 17. 10. 2026; základ letu `8f135f9`, ďalšie zásahy cez vetvu/PR. |
-| MVP-02 — statický asteroid | Jeden pripravený asteroid, čitateľný povrch a správny kontakt; ešte bez damage modelu. | Loď neprechádza neodstránenou horninou a kontakt nenaruší prijatý let mimo asteroidu. | Nezačaté, po prijatí letu. |
+| MVP-02 — statický asteroid | Jeden pripravený asteroid, čitateľný povrch a správny kontakt; ešte bez damage modelu. | Loď neprechádza neodstránenou horninou a kontakt nenaruší prijatý let mimo asteroidu. | Implementované vo feature/static-asteroid; S-01 až S-04 technicky overené, Adamov S-05 a merge čakajú. |
 | MVP-03 — vrták a tunely | LMB, predný profil, odstránenie horniny aj kolízie, neblokujúce vnútro a kontrolovaný postup. | M-01 až M-05: rovný/diagonálny tunel, zákruta, odbočka, komora, otočenie, výlet von; bez mazania mimo vrtáka a fragmentácie. Potom záznam prijatého commitu vrtáka. | Nezačaté, po technickom pláne horniny. |
 | MVP-04 — zber a Cargo | Materiál z ťažby sa zbiera do nákladu s jednoduchou kapacitou a viditeľným stavom. | Bez duplicitného zisku alebo straty; plné cargo má dohodnuté správanie. Počet typov materiálu a model kapacity dohodneme pred kódom. | Nezačaté. |
 | MVP-05 — odovzdanie | Jednoduchá základňa prijme náklad a ukáže výsledok výpravy. | Korektný presun materiálu, bez opakovaného započítania; výpravu možno zopakovať. | Nezačaté. |
@@ -42,7 +42,7 @@ Od tohto bodu ide každá zmena chránenej oblasti cez vetvu a PR. Platí to aj 
 
 Adam prvý let odskúšal a prijal. Základ `8f135f9` je zapísaný v kontrakte; ďalšie zásahy do prijatého letu idú cez vetvu a PR. Sprievodca zostáva v [FIRST_FLIGHT.md](guides/FIRST_FLIGHT.md).
 
-Ďalší implementačný krok MVP-02 bude statický asteroid a kontakt s horninou. Vŕtanie ani systémy lode sa k letu nepridali. MVP-02 treba dohodnúť ako samostatnú úlohu; nesmie narušiť prijatý let.
+MVP-02 — statický asteroid a kontakt — je pripravený vo vetve feature/static-asteroid. Adam odskúša prílet, povrch a odlet podľa [sprievodcu](guides/FIRST_ASTEROID.md); potom schváli merge. Techniku a scenáre S vlastní [ASTEROIDS.md](design/ASTEROIDS.md). Následný MVP-03 bude samostatný návrh a implementácia vrtáka; nepridal sa do tohto kroku.
 
 ## Ešte otvorené hranice
 

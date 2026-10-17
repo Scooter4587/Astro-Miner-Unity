@@ -2,6 +2,8 @@
 
 Stav 17. 10. 2026: let je implementovaný, skompilovaný a technicky overený. Adam prvý pocit z letu prijal; baseline je `8f135f9`. Ťažba ani palubné zdroje nie sú aktívne. Stále pracujeme s jednoduchou grafikou.
 
+Vo vetve feature/static-asteroid je navyše statická hornina na skúšku kontaktu; vysvetľuje ju [sprievodca asteroidom](FIRST_ASTEROID.md). Ovládanie lode zostáva rovnaké.
+
 ## Spustenie a ovládanie
 
 1. V Unity v **Project** otvor **Assets > AstroMiner > Scenes** a dvojklikni na **FlightTest**.

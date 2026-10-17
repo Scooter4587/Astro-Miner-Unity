@@ -4,7 +4,7 @@ Cieľom je overovať hráčske pravidlá a dôležité hranice. Počet testov s�
 
 ## Aktuálny stav
 
-- Unity Test Framework `1.8.0` je nainštalovaný. AstroMiner.EditModeTests má 6 prípadov parallaxu a AstroMiner.PlayModeTests 6 fyzikálnych scenárov letu; všetky prešli. FlightTest bola navyše overená živými vstupmi v Play Mode.
+- Unity Test Framework `1.8.0` je nainštalovaný. AstroMiner.EditModeTests má 6 prípadov parallaxu a AstroMiner.PlayModeTests 10 scenárov (6 let a 4 asteroid/kontakt); všetky prešli. FlightTest bola navyše overená živými vstupmi v Play Mode.
 - Existuje 6 Node testov pre výber changelog verzie a formát Discord správy. Nie sú dôkazom fungovania letu.
 - CI zatiaľ spúšťa tieto Node testy v oznamovacom workflow po zmene changelogu v main. Neoveruje každý PR a nekompiluje Unity.
 - Setup má doložené overenie kompilácie editorového nástroja, Play Mode šablóny a debuggeru v [SETUP.md](../SETUP.md).
@@ -25,6 +25,8 @@ Cieľom je overovať hráčske pravidlá a dôležité hranice. Počet testov s�
 Prvý scénový krok vytvoril `Assets/AstroMiner/Runtime/AstroMiner.Runtime.asmdef` a editorovú testovaciu assembly `Assets/AstroMiner/Tests/EditMode/AstroMiner.EditModeTests.asmdef` s referenciou na runtime a TestAssemblies. Jej testy pokrývajú pomer parallaxu, opakovanie pri dlhom pohybe oboma smermi, návrat k začiatku a neplatnú veľkosť dlaždice.
 
 Prvý let pridal `Assets/AstroMiner/Tests/PlayMode/` a assembly AstroMiner.PlayModeTests. Jej 6 scenárov overuje drift, otočenie bez presmerovania velocity/čakanie na zarovnanie, postupný ťah, Full Stop s ustálením, prerušenie a C pri nulovej/zvyškovej rýchlosti. Fyzikálny krok je kontrolovaných 0.02 s a pôvodná hodnota sa po teste obnoví. Podrobné výsledky vlastní [záznam letu](notes/2026-10-17-first-flight.md).
+
+MVP-02 pridal 4 PlayMode integračné skúšky reálnych uložených prefabov: súlad všetkých buniek s kolíziou, pomalý kontakt/manévrovanie/odlet, rýchly diagonálny náraz pri 80 jednotkách/s a Full Stop pred povrchom. Sú pod UNITY_EDITOR a používajú AssetDatabase, preto nejde o testy v samostatnom Playeri. Výsledky vlastní [záznam asteroidu](notes/2026-10-17-static-asteroid.md).
 
 - EditMode: nezávislé výpočty a rozhodovanie, ak ich oddelenie dáva zmysel.
 - PlayMode: aplikácia síl, vstupy, prepínanie režimov, kolízie a priechod tunelom.

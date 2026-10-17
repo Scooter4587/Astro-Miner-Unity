@@ -13,7 +13,7 @@ Pred návrhom architektúry alebo zmenou projektu prečítaj:
 Podľa úlohy potom čítaj:
 
 - Herný návrh alebo nový systém: [GAME_CONCEPT.md](Docs/design/GAME_CONCEPT.md).
-- Let, ovládanie, vrták, tunely alebo asteroid: [FLIGHT_AND_MINING.md](Docs/design/FLIGHT_AND_MINING.md).
+- Let, ovládanie, vrták, tunely alebo asteroid: [FLIGHT_AND_MINING.md](Docs/design/FLIGHT_AND_MINING.md); pri hornine aj [ASTEROIDS.md](Docs/design/ASTEROIDS.md).
 - Implementácia, oprava alebo overovanie: [TESTING.md](Docs/development/TESTING.md).
 - Editor, nástroje a balíky: [SETUP.md](Docs/SETUP.md).
 - Dokončenie a publikovanie: [RELEASING.md](Docs/RELEASING.md) a [CHANGELOG.md](CHANGELOG.md).
