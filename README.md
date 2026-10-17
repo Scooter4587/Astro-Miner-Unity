@@ -4,7 +4,7 @@ Nový Unity 2D prototyp Astro Miner. Po havárii veľkej lode prežije autonómn
 
 ## Aktuálny rozsah
 
-Vývojové prostredie a dokumentačný základ sú pripravené. Cieľ 0.1 MVP je let, mining, zber, odovzdávanie a jednoduché funkčné systémy Hull, Fuel, Power, Heat a Cargo. Pripravená je prvá scéna s parallaxom, fyzikálnym letom, RCS, Full Stop a kamerou sledujúcou loď. Prvý let Adam odskúšal a prijal; mining a systémy lode ešte nie sú implementované.
+Vývojové prostredie a dokumentačný základ sú pripravené. Cieľ 0.1 MVP je let, mining, zber, odovzdávanie a jednoduché funkčné systémy Hull, Fuel, Power, Heat a Cargo. Pripravená je prvá scéna s parallaxom, fyzikálnym letom, RCS, Full Stop a kamerou sledujúcou loď. Prvý let Adam odskúšal a prijal. Vo vetve feature/static-asteroid je pripravený jeden statický asteroid s kontaktom; Adamova skúška a merge čakajú. Mining a systémy lode ešte nie sú implementované.
 
 - Unity 6000.6.2f1, šablóna Universal 2D a URP 2D Renderer.
 - Klávesnica a myš; prvý cieľ je Windows.
@@ -21,5 +21,7 @@ Vývojové prostredie a dokumentačný základ sú pripravené. Cieľ 0.1 MVP je
 Historické [Godot repo](https://github.com/Scooter4587/Astro-Miner) je iba informačná referencia.
 
 Changelog a vydávanie nových krokov: [CHANGELOG.md](CHANGELOG.md) a [Docs/RELEASING.md](Docs/RELEASING.md).
+
+Statický povrch a jeho skúšku opisuje [sprievodca prvým asteroidom](Docs/guides/FIRST_ASTEROID.md).
 
 Prvú scénu a let si otvor podľa [sprievodcu letom](Docs/guides/FIRST_FLIGHT.md). WASD určuje svetový smer a C spustí postupné brzdenie. [Starší sprievodca scénou](Docs/guides/FIRST_SCENE.md) vysvetľuje pozadie a zostavu.

@@ -19,12 +19,13 @@ Dohody sa ukladajú sem a do dokumentu, ktorý vlastní pravidlo. Identifikátor
 | D-011 | 2026-10-17 | Prvý realizačný krok pripravuje scénu, jednoduché vesmírne pozadie a čitateľný pohyb s parallaxom. Dočasný náhľad kamery nezavádza finálne ovládanie lode; Blender zatiaľ nie je potrebný. | [Prvá scéna](guides/FIRST_SCENE.md) |
 | D-012 | 2026-10-17 | Adam potvrdil WASD vo svetových smeroch, C jedným stlačením spustí postupný Full Stop, nový smer ho preruší a nulová rýchlosť nevyvolá otočenie. Kamera sleduje loď. Prvý fyzikálny model používa Rigidbody2D, oddelený vstup a silu/torque; skúšobné hodnoty sú v Inspectore. | [Let](design/FLIGHT_AND_MINING.md), [sprievodca](guides/FIRST_FLIGHT.md) |
 | D-013 | 2026-10-17 | Adam po reálnej skúške prijal prvý let a označil viditeľné RCS za zlepšenie oproti Godotu. Baseline letu je `8f135f934b25ec3092d805337f1929a2571c2ebe`; aktivuje sa pracovné pravidlo vetva + PR + Adamovo prijatie pre zásahy do letu podľa D-008. Technická branch protection tým nevzniká. | [Prijatie letu](design/FLIGHT_AND_MINING.md), [dôkazy](development/notes/2026-10-17-first-flight.md) |
+| D-014 | 2026-10-17 | V autorizovanom MVP-02 sa volí vstavaný Tilemap s bunkami 0.25 pre spoločný zdroj viditeľnej a pevnej horniny. TilemapCollider2D sa spája cez CompositeCollider2D Polygons na statickom tele. Bez nového runtime frameworku alebo balíkov; pracovný kontakt bez trenia/pružnosti. Adamovo prijatie asteroidu čaká, vrták zostáva samostatný krok. | [Asteroidy](design/ASTEROIDS.md), [záznam](development/notes/2026-10-17-static-asteroid.md) |
 
 ## Otvorené — rozhodovať včas, nie všetko naraz
 
 | ID | Rozhodnutie | Kedy ho potrebujeme |
 | --- | --- | --- |
-| O-003 | Reprezentácia horniny, aktualizácia kolízií, profil vrtáka, cúvanie a komora. | Po prijatí letu, pred statickým asteroidom. |
+| O-003 | Tilemap reprezentáciu uzatvára D-014; otvorené zostávajú aktualizácia kolízií pri vŕtaní, profil vrtáka, cúvanie, stabilizácia a komora. | Pred prvým vrtákom MVP-03; reprezentácia už podľa D-014. |
 | O-004 | Samostatné PR kontroly, automatické Unity testy/buildy a potrebná licencia alebo runner. | Pri prvom hernom kroku určiť lokálny základ; vzdialenú Unity CI zaviesť samostatne podľa potreby. Zatiaľ nie je nastavená. |
 | O-005 | Hranica upgradov, spracovania rudy na part, perzistentných saves a ďalšieho obsahu. | Nie sú automaticky uzavreté slovom kompletné systémy; upresniť pred ich zahrnutím do 0.1. |
 | O-007 | Konkrétne kapacity, odbery, obnova, teplotné prahy a výpadky systémov lode. | Pred príslušným systémovým krokom; ich prítomnosť v 0.1 už určuje D-010. |

@@ -33,11 +33,11 @@ Skúšobné parametre v Ship Flight Controller: Main Acceleration 4 jednotky/s²
 - Hornina aj jej kolízia sa odstraňujú konzistentne; tmavšia vnútorná vrstva po vyvŕtaní neblokuje loď.
 - Stabilizácia sama nemaže skalu za loďou alebo mimo dosahu vrtáka. Mazanie kruhu okolo celého trupu, teleport a vypnutie kolízií nie sú schváleným riešením manévrovania.
 
-Pred týmto krokom vyberieme a vysvetlíme reprezentáciu horniny, aktualizáciu kolízií, profil vrtáka, cúvanie, rozširovanie komory a prechod po pustení LMB. Bunkový model, Tilemap a vlastná geometria sú kandidáti; žiadny ešte nie je uzavretá architektúra.
+MVP-02 zvolil vstavaný Tilemap s bunkami 0.25 a spoločnou Composite kolíziou podľa [ASTEROIDS.md](ASTEROIDS.md), D-014. Statický kontakt je implementovaný; vrták ani mazanie horniny ešte nie. Pred MVP-03 treba dohodnúť aktualizáciu kolízií po vŕtaní, profil vrtáka, cúvanie, rozširovanie komory a prechod po pustení LMB.
 
 ## Asteroid
 
-Tunely nerozdeľujú asteroid na samostatné telesá. Prvý asteroid je statický. Drift a potom rotácia prídu až po prijatom statickom prototype.
+Tunely nerozdeľujú asteroid na samostatné telesá. Prvý asteroid je statický a jeho kontakt je pripravený vo vetve feature/static-asteroid podľa [kontraktu asteroidu](ASTEROIDS.md). Drift a potom rotácia prídu až po prijatom statickom prototype.
 
 Budúci pohyb vyžaduje materiál v lokálnych súradniciach asteroidu a overenie relatívneho pohybu lode v tuneli. Samotné priradenie lode pod transform asteroidu správnu fyziku nepotvrdzuje.
 
