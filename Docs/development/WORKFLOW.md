@@ -37,7 +37,7 @@ Schválené zadanie oprávňuje vykonať implementáciu a kontroly. Nepýtaj sa 
 
 Hotový krok spĺňa dohodnutý výsledok, má primerané úspešné overenie, pravdivú dokumentáciu a záznam Adamovho prijatia, ak sa posudzuje herné správanie. `Technicky overené, čaká na Adamov test` je platný priebežný stav.
 
-Dokumentačný krok overuje odkazy, súlad a stav; nevyžaduje zbytočný Unity build. Povinné PR kontroly ani Unity build CI zatiaľ nie sú nastavené. Prvé testovacie assemblies vzniknú s konkrétnym herným kódom. Zlyhanie Discordu treba zaznamenať a vyriešiť bez slepého opakovaného odosielania; nemení spätne výsledok hry.
+Dokumentačný krok overuje odkazy, súlad a stav; nevyžaduje zbytočný Unity build. Povinné PR kontroly ani Unity build CI zatiaľ nie sú nastavené. EditMode a PlayMode assemblies už existujú pre parallax a prvý let; rozširujú sa s konkrétnym správaním. Zlyhanie Discordu treba zaznamenať a vyriešiť bez slepého opakovaného odosielania; nemení spätne výsledok hry.
 
 ## Nástroje, odovzdanie a priebežné učenie
 

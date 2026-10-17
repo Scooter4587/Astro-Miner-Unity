@@ -54,7 +54,7 @@ Nerob plošný audit pri každej malej úlohe. Čítaj spoločný základ a konk
 - Parametre na ladenie sprístupni v Inspectore a vysvetli ich účel. Skúšobné hodnoty neoznačuj za finálny balance.
 - Balíky spravuj cez Package Manager alebo oficiálne nástroje. Nemeň ručne manifest, verziu Editora ani pipeline ako vedľajší efekt inej úlohy.
 - Assety commituj s `.meta` súbormi. `Library`, `Temp`, `Logs`, `UserSettings`, generované riešenia a buildy patria mimo Gitu.
-- Vlastný kód patrí pod `Assets/AstroMiner/`; editorový kód zostáva oddelený od runtime. Testovacie assemblies vzniknú až pri prvom relevantnom hernom kroku.
+- Vlastný kód patrí pod `Assets/AstroMiner/`; editorový kód zostáva oddelený od runtime. Existujú runtime, EditMode a PlayMode assemblies; testy rozširuj iba pri relevantnom správaní podľa TESTING.md.
 
 ## Overenie a dokončenie
 

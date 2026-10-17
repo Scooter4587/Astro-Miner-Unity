@@ -1,50 +1,56 @@
 # Technický kontext projektu
 
-Kontrola: 17. 10. 2026. Základ pred prvou scénou bol `6d5ea57`. Pripravená je scéna a náhľad priestoru; Adamovo vizuálne prijatie čaká. Skutočný let a mining nie sú implementované.
+Kontrola: 17. 10. 2026. Prvá scéna bola vizuálne prezretá Adamom; nasledujúci prvý fyzikálny let je implementovaný a technicky overený. Adamov pocit z letu F-05 ešte čaká. Mining a palubné systémy zatiaľ neexistujú.
 
 ## Overený základ
 
-| Oblasť | Stav a dôkaz |
+| Oblasť | Stav |
 | --- | --- |
-| Projekt | `C:\Development\Astro Miner Unity`, GitHub `Scooter4587/Astro-Miner-Unity`, hlavná vetva main. |
-| Editor | Unity `6000.6.2f1`, revízia `770e33f6875c` podľa [ProjectVersion.txt](../ProjectSettings/ProjectVersion.txt). Živé spojenie bolo pri kroku overené. |
-| Rendering | Universal 2D, URP 17.6.0. [QualitySettings.asset](../ProjectSettings/QualitySettings.asset) používa [UniversalRP.asset](../Assets/Settings/UniversalRP.asset) a [Renderer2D.asset](../Assets/Settings/Renderer2D.asset). Nová scéna zobrazuje sprity spoločným unlit materiálom. |
-| Vstup | Input System 1.20.0; vlastný CameraPreviewPan používa Keyboard.current iba na náhľad. Finálne herné vstupy a action map ešte nie sú vytvorené. |
-| Testovanie | Test Framework 1.8.0, vlastná EditMode assembly so 6 prípadmi parallaxu. PlayMode testovacia assembly zatiaľ neexistuje; náhľad bol overený v reálnom Play Mode. |
-| Nástroje | Pipeline 0.8.0-exp.1, Unity IDE integrácia 2.0.26 a VS Code; [SETUP.md](SETUP.md) zachováva prvé overenie debuggeru. Dostupnosť Editora sa overuje pred každým zásahom. |
-| Cieľ | Windows, klávesnica a myš. Player build pre novú scénu ešte nebol overený. |
+| Projekt | `C:\Development\Astro Miner Unity`, GitHub `Scooter4587/Astro-Miner-Unity`, main. Žiadna súvislosť s Tanker Service. |
+| Editor | Unity 6000.6.2f1, rev. 770e33f6875c; živé spojenie overené. |
+| Rendering | Universal 2D, URP 17.6.0, Sprite-Unlit materiál prototypu. |
+| Vstup | Input System 1.20.0; samostatný ShipKeyboardInput číta Keyboard.current. WASD/C podľa D-012, bez action map a rebindingu. |
+| Testovanie | Test Framework 1.8.0; 6 EditMode prípadov parallaxu a 6 PlayMode scenárov letu prešlo. |
+| Nástroje | Pipeline 0.8.0-exp.1, Unity IDE 2.0.26 a VS Code; prvotné overenie debuggeru v [SETUP.md](SETUP.md). |
+| Cieľ | Windows, klávesnica/myš; Player build aktuálnej scény ešte nebol overený. |
 
-Verzie balíkov určujú [manifest.json](../Packages/manifest.json) a [packages-lock.json](../Packages/packages-lock.json). Balíky a existujúce nastavenia projektu sa nemenili. Unity pri prvom vytvorení scény vygenerovalo nový ProjectSettings/SceneTemplateSettings.json s predvolenými pravidlami šablón; je súčasťou tohto kroku.
+Verzie určujú [manifest.json](../Packages/manifest.json) a [packages-lock.json](../Packages/packages-lock.json). Letový krok nezmenil balíky, pipeline ani ProjectSettings. Predchádzajúci scénový krok pridal predvolený SceneTemplateSettings.json.
 
-## Scény, objekty a štart
+## Scéna a štart
 
-- [FlightTest.unity](../Assets/AstroMiner/Scenes/FlightTest.unity) je otvorená vlastná skúšobňa. Obsahuje Main Camera, štyri opakované vrstvy pozadia, pevnú mriežku a majáky, vizuálny prefab lode.
-- Kamera má ortografickú veľkosť 12, šípky na náhľad, Shift na zrýchlenie a Home na návrat. Pohybuje sa kamera, loď zostáva pevná a nemá Rigidbody2D ani collider.
-- Vlastné pozadie má 9 dlaždíc na vrstvu s veľkosťou 64. Pomery pohybu voči obrazu sú 0.03, 0.07, 0.20 a 0.45. Svetové značky neparallaxujú.
-- Nová scéna má 109 SpriteRenderer komponentov a 0 missing scripts; loď je skutočná inštancia [ShipPlaceholder.prefab](../Assets/AstroMiner/Prefabs/ShipPlaceholder.prefab).
-- Pôvodná `Assets/Scenes/SampleScene.unity` zostala nezmenená a stále je jedinou zapnutou scénou v [EditorBuildSettings.asset](../ProjectSettings/EditorBuildSettings.asset). Nie je zavedený herný startup ani načítanie sveta.
+[FlightTest.unity](../Assets/AstroMiner/Scenes/FlightTest.unity) obsahuje:
+
+- **Main Camera**: ortografická veľkosť 12, Z=-10, ShipCameraFollow s referenciou na loď. Bez panu šípkami, rotácie alebo look-ahead.
+- **Background - repeating parallax layers**: 4 vrstvy, každá 3 x 3 dlaždice veľkosti 64. Pomery 0.03, 0.07, 0.20 a 0.45; rodičia sa aktualizujú po kamere v LateUpdate.
+- **World - fixed reference objects**: pevná mriežka s rozostupom 8 a rozsahom ±80, 8 majákov, kruh začiatku. Nejde o steny sveta.
+- **Ship - Flight Prototype**: skutočná inštancia [ShipPlaceholder.prefab](../Assets/AstroMiner/Prefabs/ShipPlaceholder.prefab). Dynamic Rigidbody2D, CapsuleCollider2D, ShipFlightController, ShipKeyboardInput a ShipThrustVisuals. Vizuál vrtáka je stále neaktívny.
+
+Fyzika: mass 1, gravity/linear damping/angular damping 0, interpolation Interpolate, Continuous. Povely menia silu a moment v FixedUpdate, nezapisujú transform ani velocity lode. RCS stabilizuje otáčanie bez rušenia lineárneho driftu. Kamera sleduje interpolovaný transform v LateUpdate pred parallaxom.
+
+WASD zadáva svetový smer, C spustí postupný Full Stop, nový smer ho preruší. Parametre a hraničné pravidlá sú v [kontrakte](design/FLIGHT_AND_MINING.md). Nový pokus: Stop Play a znovu Play. Bez herného rýchlostného limitu. Šípky/Shift/Home v aktuálnej scéne nemajú túto funkciu.
+
+SampleScene zostala nezmenená a je stále jedinou zapnutou scénou v [EditorBuildSettings.asset](../ProjectSettings/EditorBuildSettings.asset). Aktuálnu scénu preto skúšame explicitne v Editore; startup pre Player ešte nie je zavedený.
 
 ## Kód a assemblies
 
 | Vlastník | Obsah |
 | --- | --- |
-| `AstroMiner.Runtime` v Assets/AstroMiner/Runtime | ParallaxLayer2D a CameraPreviewPan v namespace AstroMiner.Presentation; referencia na Unity.InputSystem, bez UnityEditor kódu. |
-| Predvolená editorová assembly, Assets/AstroMiner/Editor | EnvironmentCheck a FlightTestSceneBuilder. Generátor vytvoril PNG, materiál, prefab a scénu cez Editor API; existujúcu scénu neprepisuje. |
-| `AstroMiner.EditModeTests` v Assets/AstroMiner/Tests/EditMode | Editor-only testy, referencia na AstroMiner.Runtime a TestAssemblies. |
-| `scripts/` a `tests/` v koreni | Samostatný Node nástroj a 6 testov Discord changelogu; nejde o Unity testy. |
+| AstroMiner.Runtime, Assets/AstroMiner/Runtime | Flight: ShipFlightController a ShipKeyboardInput. Presentation: ParallaxLayer2D, ShipCameraFollow, ShipThrustVisuals a historický nepripojený CameraPreviewPan. Referencia Unity.InputSystem, bez UnityEditor závislosti. |
+| Predvolená editorová assembly, Assets/AstroMiner/Editor | EnvironmentCheck a historický FlightTestSceneBuilder. Generátor vytvára iba pôvodný vizuálny krok a existujúcu scénu neprepisuje; nie je rekonštrukciou aktuálneho letu. |
+| AstroMiner.EditModeTests | Editor-only, 6 prípadov parallaxu. |
+| AstroMiner.PlayModeTests | 6 integračných fyzikálnych scenárov ShipFlightTests s referenciou na runtime a TestAssemblies. |
+| scripts/ a tests/ v koreni | Samostatný Node nástroj a 6 testov Discord changelogu; nesúvisia s fyzikou Unity. |
 
-Grafické podklady sú v `Assets/AstroMiner/Art/Prototype/`. Použité sú jednoduché generované PNG, nie finálna grafika ani Blender assety. Počas Update sa nevyrábajú nové obrázky ani objekty; parallax posúva iba štyroch rodičov vrstiev.
+Grafika zostáva v Assets/AstroMiner/Art/Prototype. Trysky používajú existujúci Triangle sprite; Blender ani nové balíky neboli potrebné. Bez per-frame výroby obrázkov/objektov. C# používa AstroMiner.*, súkromné serializované polia s podčiarkovníkom, štyri medzery a UTF-8/LF.
 
-C# používa namespace AstroMiner.*, súkromné serializované polia s podčiarkovníkom a štyri medzery. UTF-8 a LF určuje [.editorconfig](../.editorconfig). Let, vrták, materiál asteroidu a zdroje zatiaľ nemajú runtime architektúru.
+## Dôkazy a prijatie
 
-## Overenie a limity
+[Záznam prvého letu](development/notes/2026-10-17-first-flight.md) dokladá 6/6 PlayMode a 6/6 EditMode, živé klávesové skúšky a kameru bez odchýlky od viditeľnej lode. Drift Y 13.6799879 zostal medzi meraniami zachovaný a Full Stop dosiahol (0,0) bez trvalého kmitania. Záber letu s tryskou bol vizuálne prezretý.
 
-6/6 Unity EditMode prípadov prešlo. V Play Mode bolo overené simulované držanie šípky doprava, zodpovedajúci posun vrstiev a nehybná loď; Home po oprave vrátil kameru aj pozadie na začiatok. Screenshot pôvodného a posunutého záberu bol prezretý. Výsledky a opravy sú v [zázname kroku](development/notes/2026-10-17-first-scene.md).
+[Sprievodca letom](guides/FIRST_FLIGHT.md) vlastní spustenie, ovládanie, Hierarchy, Inspector, súbory a ručný ekvivalent pridania komponentov. Adamovo herné prijatie stále čaká; prijatý commit letu ešte nie je uzamknutý. Pracovné zmeny sú v Unreleased.
 
-[Sprievodca scénou](guides/FIRST_SCENE.md) obsahuje presné otvorenie, ovládanie, Hierarchy, Inspector a ručný ekvivalent tvorby. Play Mode bol po kontrole zastavený.
+Historický Unity Search error a Pipeline timeout sú v [SETUP.md](SETUP.md), nie nová regresia. GitHub CI spúšťa iba Node testy changelogu, nie Unity. Discord odoslal 0.0.1; nový let sa neoznamuje ako prijaté vydanie pred Adamovou skúškou.
 
-Prvá interná výnimka Unity Search a starý Pipeline timeout zostávajú historicky v [SETUP.md](SETUP.md). CI zatiaľ spúšťa iba Node testy changelogu, nie Unity testy ani Player build. Discord úspešne odoslal 0.0.1; nové pracovné zmeny sú zatiaľ v Unreleased.
+## Ďalší krok
 
-## Ďalšie rozhodnutia
-
-Presné vstupy a parametre letu ostávajú podľa [kontraktu](design/FLIGHT_AND_MINING.md) otvorené. CameraPreviewPan sa pred skutočným letom vypne alebo nahradí. Reprezentácia horniny a kolízií sa rozhodne pred miningom; zdroje, save systém, ekonomika a gameplay UI ešte nie sú zavedené.
+Adam odskúša F-05, doladíme let a zaznamenáme prijatý commit. Potom zásahy do prijatého letu idú cez vetvu/PR podľa D-008. Statický asteroid, jeho reprezentácia a kontakt sú ďalšia samostatná úloha. Mining, zdroje, saves, ekonomika a HUD ešte nemajú implementáciu.

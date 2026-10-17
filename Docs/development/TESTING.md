@@ -4,7 +4,7 @@ Cieľom je overovať hráčske pravidlá a dôležité hranice. Počet testov s�
 
 ## Aktuálny stav
 
-- Unity Test Framework `1.8.0` je nainštalovaný. Vlastná assembly AstroMiner.EditModeTests má 6 prípadov parallaxu, ktoré prešli. Vlastné PlayMode automatické testy zatiaľ neexistujú; náhľad scény bol overený aj v Play Mode.
+- Unity Test Framework `1.8.0` je nainštalovaný. AstroMiner.EditModeTests má 6 prípadov parallaxu a AstroMiner.PlayModeTests 6 fyzikálnych scenárov letu; všetky prešli. FlightTest bola navyše overená živými vstupmi v Play Mode.
 - Existuje 6 Node testov pre výber changelog verzie a formát Discord správy. Nie sú dôkazom fungovania letu.
 - CI zatiaľ spúšťa tieto Node testy v oznamovacom workflow po zmene changelogu v main. Neoveruje každý PR a nekompiluje Unity.
 - Setup má doložené overenie kompilácie editorového nástroja, Play Mode šablóny a debuggeru v [SETUP.md](../SETUP.md).
@@ -24,7 +24,7 @@ Cieľom je overovať hráčske pravidlá a dôležité hranice. Počet testov s�
 
 Prvý scénový krok vytvoril `Assets/AstroMiner/Runtime/AstroMiner.Runtime.asmdef` a editorovú testovaciu assembly `Assets/AstroMiner/Tests/EditMode/AstroMiner.EditModeTests.asmdef` s referenciou na runtime a TestAssemblies. Jej testy pokrývajú pomer parallaxu, opakovanie pri dlhom pohybe oboma smermi, návrat k začiatku a neplatnú veľkosť dlaždice.
 
-Pre budúce integračné testy zostáva miesto `Assets/AstroMiner/Tests/PlayMode/`; tento priečinok ešte neexistuje. Testovacia infraštruktúra sa rozširuje podľa skutočného kódu.
+Prvý let pridal `Assets/AstroMiner/Tests/PlayMode/` a assembly AstroMiner.PlayModeTests. Jej 6 scenárov overuje drift, otočenie bez presmerovania velocity/čakanie na zarovnanie, postupný ťah, Full Stop s ustálením, prerušenie a C pri nulovej/zvyškovej rýchlosti. Fyzikálny krok je kontrolovaných 0.02 s a pôvodná hodnota sa po teste obnoví. Podrobné výsledky vlastní [záznam letu](notes/2026-10-17-first-flight.md).
 
 - EditMode: nezávislé výpočty a rozhodovanie, ak ich oddelenie dáva zmysel.
 - PlayMode: aplikácia síl, vstupy, prepínanie režimov, kolízie a priechod tunelom.
@@ -42,7 +42,7 @@ node --test tests/discord-changelog-workflow.test.mjs
 node scripts/post-discord-changelog.mjs --dry-run
 ```
 
-Dry run nevyužíva webhook a neodosiela správu. Unity testy možno spustiť v Unity Test Runneri cez Window > General > Test Runner, karta EditMode, assembly AstroMiner.EditModeTests. Cez pripojený Pipeline bol overený aj run_tests s mode editor a filtrom tejto assembly; výsledky sa preberajú cez test_status. Vzdialená Unity CI a runner/licencia sú [O-004](../DECISIONS.md), nie už fungujúca služba.
+Dry run nevyužíva webhook a neodosiela správu. Unity testy možno spustiť v Unity Test Runneri cez Window > General > Test Runner, karta EditMode, assembly AstroMiner.EditModeTests; pre fyziku karta PlayMode a AstroMiner.PlayModeTests. Cez pripojený Pipeline bol overený aj run_tests s mode editor a filtrom tejto assembly; výsledky sa preberajú cez test_status. Pre fyziku sa používa run_tests s mode playmode a filtrom assembly AstroMiner.PlayModeTests. Vzdialená Unity CI a runner/licencia sú [O-004](../DECISIONS.md), nie už fungujúca služba.
 
 ## Záznam výsledku
 

@@ -6,10 +6,12 @@ Nový Unity vývoj Astro Miner začína vlastným číslovaním. Najnovšie vyda
 
 ### Added
 - Prvá scéna FlightTest: jednoduché vesmírne pozadie, opakované parallax vrstvy, pevná orientačná mriežka a majáky.
-- Vizuálny prefab lode a dočasný náhľad kamery cez šípky, Shift a Home; skutočný let a mining ešte nie sú implementované.
-- Prvých 6 Unity EditMode testovacích prípadov pre parallax a overený náhľad v Play Mode.
+- Prefab lode s Rigidbody2D, WASD vo svetových smeroch, otáčaním RCS, ťahom po zarovnaní, zachovaným driftom a postupným Full Stop na C.
+- Kamera sledujúca loď a jednoduchá vizuálna odozva hlavného motora a RCS; nahradený dočasný náhľad šípkami.
+- 6 Unity EditMode prípadov parallaxu a 6 PlayMode scenárov fyzikálneho letu.
 
 ### Documentation
+- Sprievodca prvým letom a zapísané potvrdené pravidlá WASD/C; prijatie pocitu z letu ešte čaká.
 - Sprievodca prvou scénou: súbory, Hierarchy, Inspector, ovládanie a ručný ekvivalent tvorby v Unity.
 - Praktický flow jedného lokálneho projektu medzi Unity, VS Code, Blenderom a GitHubom; odovzdanie skúšky a priebežné vysvetľovanie Unity.
 - Trvalý dokumentačný základ: koncept hry, dohodnuté jadro, technický stav, rozhodnutia a poznatky z vývoja.

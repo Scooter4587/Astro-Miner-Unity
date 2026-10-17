@@ -1,6 +1,6 @@
 # Prvá scéna a orientácia v priestore — 17. 10. 2026
 
-Stav: technicky overené, Adamova vizuálna skúška čaká. Základ pred zmenou: `6d5ea57`. Pracovný výsledok je v Unreleased, nie prijaté vydanie letu alebo miningu.
+Stav: technicky overené. Adam scénu prezrel, prijal prvý vizuálny krok a následne zadal pohyb lode; let sa tým ešte neprijal. Základ pred zmenou: `6d5ea57`. Pracovný výsledok je v Unreleased, nie prijaté vydanie letu alebo miningu.
 
 ## Rozsah
 
@@ -26,4 +26,4 @@ Po externých zmenách C# treba nechať Unity dokončiť import a kompiláciu pr
 
 ## Odovzdanie
 
-[Sprievodca prvou scénou](../../guides/FIRST_SCENE.md) opisuje súbory, Hierarchy, Inspector, ručný ekvivalent tvorby a skúšku cez Play. Ovládanie: šípky, Shift, Home. Skutočný let je stále ďalší samostatný krok podľa MVP-01.
+[Sprievodca prvou scénou](../../guides/FIRST_SCENE.md) opisuje súbory, Hierarchy, Inspector, ručný ekvivalent tvorby a skúšku cez Play. Pôvodné ovládanie: šípky, Shift, Home. Následný [letový krok](2026-10-17-first-flight.md) ich nahradil WASD/C a sledovaním lode.

@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &26378210 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5601538913214120757, guid: e6c6fda76ee92324abb5773438132966, type: 3}
+  m_PrefabInstance: {fileID: 8763843202538883292}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &33612840
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,7 +136,7 @@ GameObject:
   - component: {fileID: 33612845}
   - component: {fileID: 33612844}
   - component: {fileID: 33612843}
-  - component: {fileID: 33612842}
+  - component: {fileID: 33612846}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -154,20 +159,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &33612842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 33612840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7532948ab79e2c4e92cc85f98e418c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: AstroMiner.Runtime::AstroMiner.Presentation.CameraPreviewPan
-  _panSpeed: 12
-  _travelLimit: {x: 48, y: 48}
 --- !u!114 &33612843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,6 +262,19 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &33612846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33612840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1b932e60c77a364db14bf49a106ed52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AstroMiner.Runtime::AstroMiner.Presentation.ShipCameraFollow
+  _target: {fileID: 26378210}
 --- !u!1 &36477266
 GameObject:
   m_ObjectHideFlags: 0
@@ -10474,7 +10478,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8301678097343089727, guid: e6c6fda76ee92324abb5773438132966, type: 3}
       propertyPath: m_Name
-      value: Ship Placeholder - visual only
+      value: Ship - Flight Prototype
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -1,6 +1,6 @@
 # Let a vŕtanie — dohodnuté jadro
 
-Stav: správanie dohodnuté v koncepte, zatiaľ bez hernej implementácie. Číselné parametre a technické voľby nižšie zostávajú otvorené. Kontext dáva [Herný koncept](GAME_CONCEPT.md).
+Stav: prvý let je implementovaný; technické dôkazy vlastní [záznam kroku](../development/notes/2026-10-17-first-flight.md). Adamov herný test F-05 ešte čaká. Mining nie je implementovaný. Kontext dáva [Herný koncept](GAME_CONCEPT.md).
 
 ## Let
 
@@ -10,7 +10,19 @@ Stav: správanie dohodnuté v koncepte, zatiaľ bez hernej implementácie. Čís
 - `C` spustí Full Stop: otočenie proti aktuálnemu pohybu a postupné zabrzdenie. Rotačné tlmenie nesmie skryto brzdiť lineárny pohyb.
 - Myš zatiaľ nesmeruje loď. Assisted/arcade režim je neskoršia možnosť, nie povinná súčasť hry.
 
-Pred implementáciou letového kroku dohodneme smerové klávesy a ich súradnicový význam, prerušenie Full Stop a správanie pri takmer nulovej rýchlosti. WASD je návrh. Zrýchlenie, RCS, tolerancia zarovnania, brzdenie a prípadný rýchlostný limit budú označené skúšobné parametre, nie hodnoty prevzaté zo starého Godotu.
+### Prvý letový krok — D-012
+
+Adam 17. 10. 2026 potvrdil WASD v súradniciach obrazovky/sveta: W hore (+Y), S dole, A doľava, D doprava. Dve klávesy tvoria normalizovaný diagonálny smer; protichodné klávesy sa vyrušia. Nejde o relatívne ovládanie podľa nosa.
+
+C sa aktivuje jedným stlačením a brzdenie pokračuje po pustení C. Nový nenulový smer WASD Full Stop preruší. Smer už držaný v okamihu C brzdenie hneď nezruší; treba smer zmeniť alebo pustiť a znovu stlačiť. Opakované C brzdenie obnoví, nie prepne na drift. C pri nulovej rýchlosti neotáča loď. Zvyšok rýchlosti do 0.02 jednotky/s sa dočistí silou najviac jedného bežného kroku ťahu; nejde o okamžité vynulovanie ľubovoľnej rýchlosti. Pustenie vstupu stabilizuje iba otáčanie, nie lineárny pohyb.
+
+Kamera sleduje interpolovanú polohu lode v LateUpdate, zachová Z=-10, neotáča sa a nepridáva look-ahead ani oneskorenie. Loď zostáva v strede; pohyb ukazuje svet a parallax. Šípky, Shift a Home už kameru v FlightTest neovládajú. Nový pokus je Stop Play a znovu Play.
+
+Technika: Rigidbody2D Dynamic, mass 1, gravity scale 0, linear/angular damping 0, interpolation Interpolate, continuous collision detection. Ťah používa AddForce a RCS AddTorque v FixedUpdate. Rotačný regulátor je obmedzený, nemení lineárnu velocity. CapsuleCollider2D je dočasný obal 1.4 x 2.8 s offsetom Y=0.2; priechodnosť tunela sa týmto krokom neoveruje.
+
+Skúšobné parametre v Ship Flight Controller: Main Acceleration 4 jednotky/s², Max Turn Speed 160°/s, Turn Acceleration 600°/s², Alignment Tolerance 5°, Stop Epsilon 0.02 jednotky/s. Bez herného obmedzovača rýchlosti. Nejde o finálny balance ani o čísla zo starého Godotu. Trysky sú jednoduchá vizuálna odozva skutočného povelu; vrták zostáva neaktívny.
+
+[Sprievodca prvým letom](../guides/FIRST_FLIGHT.md) opisuje ovládanie, Inspector aj manuálny ekvivalent pridania komponentov.
 
 ## Vŕtanie a priestor
 
@@ -55,7 +67,7 @@ Podľa [D-008](../DECISIONS.md) sa prvý prototyp môže vyvíjať v main. Po te
 
 | Oblasť | Stav | Prijatý commit | Dôkaz |
 | --- | --- | --- | --- |
-| Let a ovládanie | Zatiaľ neimplementované a neprijaté. | — | F-01 až F-05 čakajú. |
+| Let a ovládanie | Implementované; Adamovo prijatie čaká. | — | [Technický záznam](../development/notes/2026-10-17-first-flight.md); F-05 čaká. |
 | Vrták a tunely | Zatiaľ neimplementované a neprijaté. | — | M-01 až M-05 čakajú. |
 
 Po prijatí letu môže jeho integrácia s prvým vrtákom vyžadovať vetvu ešte pred prijatím samotného vrtáka. Číselné ladenie, ak mení výsledné správanie chránenej oblasti, je tiež jej zmena.

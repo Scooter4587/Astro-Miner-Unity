@@ -17,13 +17,12 @@ Dohody sa ukladajú sem a do dokumentu, ktorý vlastní pravidlo. Identifikátor
 | D-009 | 2026-10-17 | Najbližší cieľ je roadmapa k 0.1 MVP: loď, ovládanie, asteroid a mining. Podrobný rozsah dopĺňa D-010; jednotlivé implementačné kroky sa dohodnú samostatne, nejde o zadanie vyrobiť celé MVP naraz. | [Roadmapa](ROADMAP.md) |
 | D-010 | 2026-10-17 | Adam spresnil 0.1 ako celý malý cyklus let, mining, zber a odovzdávanie s jednoduchými funkčnými systémami Hull, Fuel, Power, Heat a Cargo. Zdroje patria do 0.1, hoci nie do prvého letu. | [Roadmapa](ROADMAP.md), [koncept](design/GAME_CONCEPT.md) |
 | D-011 | 2026-10-17 | Prvý realizačný krok pripravuje scénu, jednoduché vesmírne pozadie a čitateľný pohyb s parallaxom. Dočasný náhľad kamery nezavádza finálne ovládanie lode; Blender zatiaľ nie je potrebný. | [Prvá scéna](guides/FIRST_SCENE.md) |
+| D-012 | 2026-10-17 | Adam potvrdil WASD vo svetových smeroch, C jedným stlačením spustí postupný Full Stop, nový smer ho preruší a nulová rýchlosť nevyvolá otočenie. Kamera sleduje loď. Prvý fyzikálny model používa Rigidbody2D, oddelený vstup a silu/torque; skúšobné hodnoty sú v Inspectore. | [Let](design/FLIGHT_AND_MINING.md), [sprievodca](guides/FIRST_FLIGHT.md) |
 
 ## Otvorené — rozhodovať včas, nie všetko naraz
 
 | ID | Rozhodnutie | Kedy ho potrebujeme |
 | --- | --- | --- |
-| O-001 | Smerové klávesy a súradnice smeru, prerušenie C, stav pri nulovej rýchlosti a skúšobné parametre letu. | Pred prvou letovou implementáciou; ďalšia diskusia. |
-| O-002 | Rigidbody2D riešenie, členenie prvých tried a testovacie assemblies. | S malým plánom letového kroku; technický návrh vysvetlí agent. |
 | O-003 | Reprezentácia horniny, aktualizácia kolízií, profil vrtáka, cúvanie a komora. | Po prijatí letu, pred statickým asteroidom. |
 | O-004 | Samostatné PR kontroly, automatické Unity testy/buildy a potrebná licencia alebo runner. | Pri prvom hernom kroku určiť lokálny základ; vzdialenú Unity CI zaviesť samostatne podľa potreby. Zatiaľ nie je nastavená. |
 | O-005 | Hranica upgradov, spracovania rudy na part, perzistentných saves a ďalšieho obsahu. | Nie sú automaticky uzavreté slovom kompletné systémy; upresniť pred ich zahrnutím do 0.1. |
@@ -35,3 +34,5 @@ Pred letovým krokom netreba vybrať celý finálny tech stack ani celý tech tr
 ## Vyriešené otázky
 
 - O-006: Adam 17. 10. 2026 zvolil širšiu hranicu než samotný let a vrták: zber, odovzdávanie a základné systémy lode patria do 0.1. Rozhodnutie D-010; konkrétny počet materiálov a číselné parametre zostávajú otvorené.
+
+- O-001 a O-002: prvý implementačný kontrakt a fyzikálne členenie uzatvára D-012. Pocit a číselné ladenie ešte vyžadujú Adamov test.
