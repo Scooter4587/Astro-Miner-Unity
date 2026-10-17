@@ -3,11 +3,11 @@
 Používame rovnaký princíp ako Evolution Game, prispôsobený vetve main a názvu Astro Miner.
 
 1. Počas práce zbieraj zmeny pod `## [Unreleased]` v CHANGELOG.md.
-2. Keď je malý krok dokončený, overený a prijatý Adamom, priprav v jeho vetve novú sekciu `## [verzia] - YYYY-MM-DD` nad staršími verziami. Sekcie používajú `### Added`, `### Changed`, `### Fixed`, `### Documentation` alebo `### Known limitations`; položky začínajú pomlčkou.
-3. Po Adamovom schválení spoj PR s dokončenou novou verziou do main. GitHub Actions ju porovná s predchádzajúcim changelogom a odošle najnovšiu novú verziu do Discordu.
+2. Keď je malý krok dokončený a overený, pri hernom správaní aj prijatý Adamom, priprav novú sekciu `## [verzia] - YYYY-MM-DD` nad staršími verziami. Sekcie používajú `### Added`, `### Changed`, `### Fixed`, `### Documentation` alebo `### Known limitations`; položky začínajú pomlčkou.
+3. Publikuj dokončenú novú verziu do main podľa aktuálneho workflow: počas prototypovania môže ísť priamo; pri zásahu do prijatého jadra cez Adamom schválený PR. GitHub Actions ju porovná s predchádzajúcim changelogom a odošle najnovšiu novú verziu do Discordu.
 4. Oprava textu už existujúcej verzie ani úprava Unreleased automaticky neposiela ďalšiu správu.
 
-Dohodnutá cesta do main je vetva a PR podľa [WORKFLOW.md](development/WORKFLOW.md). Oznamovací mechanizmus technicky reaguje na push do main vrátane merge; to neobchádza pravidlo Adamovho schválenia. Pri jednej zmene changelogu vydávaj jeden nový malý krok. Toto automaticky nevytvára GitHub Release ani herný build.
+Dohodnutý Git režim určuje [WORKFLOW.md](development/WORKFLOW.md), novšie rozhodnutie D-008. Pracovný push do main môže obsahovať iba Unreleased bez novej správy; sám neznamená prijaté herné vydanie. Nová verzia v changelogu po príchode do main odošle oznámenie bez ohľadu na spôsob integrácie. Pri jednej zmene changelogu vydávaj jeden nový malý krok. Toto automaticky nevytvára GitHub Release ani herný build.
 
 ## Tajná konfigurácia
 

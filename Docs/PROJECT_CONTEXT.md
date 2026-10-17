@@ -1,6 +1,6 @@
 # Technický kontext projektu
 
-Kontrola súborov: 17. 10. 2026, základ `28c9b35` na `main`. Tento dokument opisuje zistený stav, nie plán budúcej architektúry. Živý Editor sa pri tejto dokumentačnej zmene neovládal.
+Konfigurácia overená 17. 10. 2026 na základe `28c9b35`; nad `3d55791` sa dopĺňa iba dokumentácia a roadmapa. Živý Editor bol znovu overený cez editor_status: správny projekt `C:\Development\Astro Miner Unity`, Unity 6000.6.2f1, ready, bez prebiehajúcej kompilácie, Play Mode zastavený. Nešlo o nový herný test ani Player build.
 
 ## Overený základ
 

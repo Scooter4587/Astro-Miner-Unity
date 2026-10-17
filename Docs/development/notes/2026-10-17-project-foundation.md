@@ -24,3 +24,7 @@ Prešlo: 70 relatívnych odkazov v 15 Markdown súboroch, kontrola UTF-8 a diffu
 Adamovo prijatie dokumentačného výsledku: čaká. Schválenie pracovného režimu nie je automatické schválenie všetkého textu alebo merge.
 
 Ďalší herný krok: spoločne uzavrieť malý rozsah letovej skúšobne a otázky O-001/O-002. Implementácia letu ešte nebola zadaná.
+
+## Následné spresnenie pracovného režimu
+
+Neskoršie zadanie z 17. 10. 2026 povoľuje úvodný prototyp priamo v main a presúva vetvy/PR na zásahy do prijatého jadra. D-008 nahrádza Git časť D-006. Dokumentačný základ bol prevzatý do main podľa tohto zadania; vyššie uvedené čakanie na PR opisuje pôvodný stav. Roadmapa 0.1 je nový pracovný návrh, nie schválená implementácia celého MVP. Pozri [záznam plánovania](2026-10-17-mvp-roadmap.md).

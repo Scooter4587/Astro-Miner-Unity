@@ -33,7 +33,7 @@ Nerob plošný audit pri každej malej úlohe. Čítaj spoločný základ a konk
 - Komunikuj po slovensky, priamo a konkrétne. Vysvetli, čo sa stavia a ako to overíme.
 - Postupuj po malých dohodnutých krokoch. Pred hernou implementáciou ujasni výsledok, akceptačné kritériá a čo do kroku nepatrí.
 - Keď je rozsah schválený, dokonči potrebnú implementáciu a overenie bez opakovaných otázok na už udelený súhlas.
-- Dohodnutý Git postup: samostatná vetva, PR, Adamovo odskúšanie a schválenie, potom merge do `main`. Technické overenie nenahrádza jeho posúdenie pocitu z hry.
+- Git postup podľa novšieho D-008: úvodný prototyp možno robiť priamo v `main`. Po prijatí letu alebo vrtáka sa zásahy do príslušného jadra robia cez vetvu, PR a Adamovo odskúšanie/schválenie. Pravidlo platí aj pre nové systémy meniace už prijaté jadro. Technické overenie nenahrádza herné prijatie.
 - Zachovaj cudzie necommitnuté zmeny. Nerob reset, stash, hromadné čistenie ani prepis histórie bez príslušného zadania.
 
 ## Herné hranice
@@ -61,5 +61,5 @@ Nerob plošný audit pri každej malej úlohe. Čítaj spoločný základ a konk
 - Pri nedostupnom overení zapíš `nevykonané` a dôvod. Očakávaný výsledok nikdy neoznačuj ako úspešný test.
 - V tej istej zmene aktualizuj dotknutý dokument systému, roadmapu, projektový kontext, rozhodnutia a tento súbor, iba ak sa ich obsah mení. Podstatné poznatky zachovaj stručne v `Docs/development/notes/`.
 - Dokončený krok zhrň podľa [CHECKPOINT_TEMPLATE.md](Docs/development/CHECKPOINT_TEMPLATE.md): výsledok, dôkazy, obmedzenia a Adamovo prijatie. Chat nesmie byť jediným nositeľom dôležitého rozhodnutia.
-- Rozpracované zmeny patria do `Unreleased`. Verziu a Discord vydanie priprav podľa `Docs/RELEASING.md`; PR ani lokálny test ešte nie sú publikovanie.
+- Rozpracované zmeny patria do `Unreleased`. Verziu a Discord vydanie priprav podľa `Docs/RELEASING.md`; lokálny test, pracovný commit v main ani otvorený PR samy neznamenajú prijaté vydanie.
 - Webhook je výhradne v GitHub secret `DISCORD_CHANGELOG_WEBHOOK_URL`. Nikdy nekopíruj jeho hodnotu ani iné heslá/tokeny do súborov, príkazových výpisov alebo dokumentácie.

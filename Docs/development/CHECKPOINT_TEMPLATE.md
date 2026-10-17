@@ -27,5 +27,5 @@ Použi primerané časti v `Docs/development/notes/YYYY-MM-DD-tema.md` alebo v P
 
 - Aktualizované dokumenty a roadmapa:
 - Známe obmedzenia a ďalšia práca:
-- PR a stav schválenia/merge:
+- Commit v main alebo PR a stav schválenia/merge:
 - Changelog verzia a Discord: čaká / odoslané / zlyhalo / neplatí:

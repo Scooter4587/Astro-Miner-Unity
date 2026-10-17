@@ -48,3 +48,14 @@ Tieto scenáre sú očakávania pre budúce kroky, nie tvrdenie o úspešných t
 | A-01 | Drift a rotácia nenarušia priechod, lokálne vŕtanie ani uvoľnenie stabilizácie. | Až pohybujúci sa asteroid. |
 
 Najbližší krok rieši iba scenáre F. Celkové predvedenie prvého herného prototypu neskôr spojí prílet, brzdenie, zakrivený tunel, komoru, otočenie a výlet von.
+
+## Prijatie a ochrana základu
+
+Podľa [D-008](../DECISIONS.md) sa prvý prototyp môže vyvíjať v main. Po technickom overení a Adamovom prijatí zapíšeme overený commit a výsledky scenárov. Od tohto bodu sa každá zmena príslušného jadra robí vo vetve a PR; nový systém nesmie toto pravidlo obísť.
+
+| Oblasť | Stav | Prijatý commit | Dôkaz |
+| --- | --- | --- | --- |
+| Let a ovládanie | Zatiaľ neimplementované a neprijaté. | — | F-01 až F-05 čakajú. |
+| Vrták a tunely | Zatiaľ neimplementované a neprijaté. | — | M-01 až M-05 čakajú. |
+
+Po prijatí letu môže jeho integrácia s prvým vrtákom vyžadovať vetvu ešte pred prijatím samotného vrtáka. Číselné ladenie, ak mení výsledné správanie chránenej oblasti, je tiež jej zmena.

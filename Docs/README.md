@@ -8,13 +8,13 @@ Toto je vstupný bod pre obnovenie kontextu. Dokumenty žijú spolu s projektom 
 | --- | --- |
 | [Herný koncept](design/GAME_CONCEPT.md) | Hlavný cyklus a dlhodobá vízia; nie zoznam hotových funkcií. |
 | [Let a vŕtanie](design/FLIGHT_AND_MINING.md) | Dohodnuté jadro, otvorené parametre a akceptačné scenáre. |
-| [Roadmapa](ROADMAP.md) | Poradie krokov, ich stav a najbližšia práca. |
+| [Roadmapa](ROADMAP.md) | Návrh rozsahu 0.1 MVP, poradie a najbližšia práca. |
 | [Projektový kontext](PROJECT_CONTEXT.md) | Overený technický základ a prítomná implementácia. |
 | [Rozhodnutia](DECISIONS.md) | Trvalé dohody, dôvody a otvorené voľby. |
-| [Pracovný postup](development/WORKFLOW.md) | Rozsah, vetva, PR, prijatie a merge. |
+| [Pracovný postup](development/WORKFLOW.md) | Úvodný prototyp v main, prijatie jadra a ďalšie zásahy cez vetvu/PR. |
 | [Testovanie](development/TESTING.md) | Automatické testy, Editor a Adamov herný test. |
 | [Šablóna uzavretia kroku](development/CHECKPOINT_TEMPLATE.md) | Výsledok a dôkazy bez predstierania vykonaných kontrol. |
-| [Poznatky z krokov](development/notes/2026-10-17-project-foundation.md) | Prvý záznam; ďalšie patria do toho istého priečinka. |
+| [Poznatky z krokov](development/notes/2026-10-17-project-foundation.md) | Dokumentačný základ a [návrh MVP/workflow](development/notes/2026-10-17-mvp-roadmap.md); ďalšie zápisy patria do toho istého priečinka. |
 | [Setup](SETUP.md) | Nástroje, pripojenie a evidencia prvého overenia. |
 | [Vydávanie](RELEASING.md) | Verzie changelogu a Discord. |
 | [Changelog](../CHANGELOG.md) | Dokončené zmeny a rozpracované Unreleased. |
