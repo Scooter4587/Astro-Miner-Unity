@@ -7,7 +7,8 @@ Nový Unity vývoj Astro Miner začína vlastným číslovaním. Najnovšie vyda
 ### Documentation
 - Trvalý dokumentačný základ: koncept hry, dohodnuté jadro, technický stav, rozhodnutia a poznatky z vývoja.
 - Povinné čítanie a aktualizácia dokumentácie v AGENTS.md a postup budúcich Unity testov.
-- Pracovný návrh roadmapy k 0.1 MVP a spresnený workflow: úvodný prototyp v main, zásahy do prijatého letu alebo vrtáka cez vetvu a PR.
+- Roadmapa k 0.1 MVP: celý cyklus letu, miningu, zberu a odovzdávania so základnými systémami Hull, Fuel, Power, Heat a Cargo.
+- Spresnený workflow: úvodný prototyp v main, zásahy do prijatého letu alebo vrtáka cez vetvu a PR.
 
 ## [0.0.1] - 2026-10-17
 

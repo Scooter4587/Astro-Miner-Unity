@@ -47,3 +47,15 @@ Dry run nevyužíva webhook a neodosiela správu. Unity testy sa po vytvorení s
 Pri dôležitom teste zapíš commit alebo jednoznačný stav vetvy, scénu/scenár, nástroj, očakávaný a skutočný výsledok. Používaj `prešlo`, `zlyhalo`, `nevykonané` alebo `neplatí` s dôvodom. Pri hernom kroku uveď zvlášť `Adamov test: čaká/prešlo/zlyhalo` a jeho vyjadrenie, ak existuje.
 
 Console bez nových chýb je jeden dôkaz; sama nepotvrdzuje správny pohyb. Zelené Node testy nepotvrdzujú kompiláciu Unity. Úspešný build nepotvrdzuje príjemný let. Dokumentácia nemá tieto hranice skrývať.
+
+## Systémy lode v 0.1
+
+Rozsah podľa D-010 zahŕňa Cargo, Power, Heat, Fuel a Hull aj odovzdávanie. Keď sa dohodnú ich presné pravidlá, pridajú sa cielené scenáre a testy:
+
+- Zber a odovzdanie: materiál sa nepripíše dvakrát, presun zachová dohodnuté množstvo a plné cargo má definované správanie.
+- Power a Fuel: spotreba a obnova podľa pravidiel, hranica vyčerpania, výpadok, doplnenie a ďalší platný stav.
+- Heat: produkcia, chladenie, prekročenie prahu, dočasné odstavenie a návrat bez kmitania stavov.
+- Hull: dohodnutý damage, hranica zničenia a schválený ďalší pokus/recovery vrátane strát.
+- Integrácia: systémové výpadky nesmú obísť pravidlá letu alebo miningu; napríklad vypnutie motora okamžite nezruší zotrvačnosť.
+
+Toto je plán pokrytia, nie tvrdenie o existujúcich testoch. Finálny Windows build sa overí celou výpravou aj relevantnými hraničnými stavmi, nielen štartom aplikácie.

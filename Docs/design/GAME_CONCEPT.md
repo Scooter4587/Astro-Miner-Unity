@@ -1,6 +1,6 @@
 # Herný koncept
 
-Stav: zachovaný smer hry z Adamovho pitchu, handoffu a následných spresnení. Toto je vízia; implementované funkcie vlastní [projektový kontext](../PROJECT_CONTEXT.md), poradie [roadmapa](../ROADMAP.md).
+Stav: zachovaný smer hry z Adamovho pitchu, handoffu a následných spresnení. Cieľ 0.1 teraz podľa D-010 zahŕňa let, mining, zber, odovzdávanie a jednoduché funkčné systémy Hull, Fuel, Power, Heat a Cargo. Dlhodobá vízia je širšia; implementované funkcie vlastní [projektový kontext](../PROJECT_CONTEXT.md), poradie [roadmapa](../ROADMAP.md).
 
 ## Jedna veta
 
@@ -25,9 +25,9 @@ Má to byť menšia pokojná 2D hra s miernym rizikom. Dve náročné mechanick�
 
 Spracovanie nemá prerásť do tovární, pásov a rozsiahlych výrobných reťazcov. Recepty, ceny, dĺžka hry, konečná podoba úniku ani tech tree zatiaľ nie sú určené.
 
-## Loď a budúce zdroje
+## Loď a zdroje pre 0.1
 
-Hráč ovláda autonómny stroj, nie ľudskú posádku. Začiatok má byť poškodený, slabý a lokálny. Tieto systémy sú smerom pre neskôr, nie obsahom prvého letového prototypu:
+Hráč ovláda autonómny stroj, nie ľudskú posádku. Začiatok má byť poškodený, slabý a lokálny. Tieto systémy patria do cieľa 0.1, ale pribudnú až po jadre a nie do prvého letového prototypu. Konkrétne parametre a následky sa dohodnú pri ich krokoch:
 
 | Systém | Dohodnutý význam | Otvorené |
 | --- | --- | --- |
@@ -49,7 +49,7 @@ Pás môže obsahovať dutiny, vraky, skrýše a záhadné signály. Scanner a p
 
 ## Hranice najbližšieho vývoja
 
-Najprv letová skúšobňa, potom statický asteroid a vŕtanie, až následne pohyb asteroidu. Zdroje, ekonomika, finálna grafika, príbeh, gravitácia, boj, multiplayer a rozsiahly procedurálny svet tieto kroky nerozširujú.
+Najprv letová skúšobňa, potom statický asteroid a vŕtanie, až následne pohyb asteroidu. Zdroje lode, zber a odovzdávanie patria do 0.1 ako ďalšie samostatné kroky po základe letu a miningu. Ekonomika, finálna grafika, príbeh, gravitácia, boj, multiplayer a rozsiahly procedurálny svet prvé úlohy nerozširujú. Presná hranica upgradov, spracovania a saves ešte nie je uzavretá.
 
 Ovládanie a kritériá priechodného tunela vlastní [Let a vŕtanie](FLIGHT_AND_MINING.md). Technika asteroidu ani fyzikálny model ešte nie sú uzamknuté konkrétnou implementáciou.
 
